@@ -2,19 +2,16 @@
 using System.Collections;
 
 public class lampGlow : MonoBehaviour {
-    /*
-	int intensity = 0; //0-255
-	int t = 1 / intensity; //0-1
-	public Color color0 = Color.white;
-	public Color color1 = Color.black;
-	public Shader lerpedColor;
-
+	int intensity = 10;
+	int timyTime = 30;
+	float fuckmylife =42;
+	// Use this for initialization
 	void Start () {
-		lerpedColor = GetComponent<Shader>();
+	
 	}
 	
+	// Update is called once per frame
 	void Update () {
-		lerpedColor.Albedo = Color.Lerp(Color.white, Color.black, t);
+	
 	}
-    */
 }
