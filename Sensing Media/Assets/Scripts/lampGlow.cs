@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class lampGlow : MonoBehaviour {
-
+    /*
 	int intensity = 0; //0-255
 	int t = 1 / intensity; //0-1
 	public Color color0 = Color.white;
@@ -16,4 +16,5 @@ public class lampGlow : MonoBehaviour {
 	void Update () {
 		lerpedColor.Albedo = Color.Lerp(Color.white, Color.black, t);
 	}
+    */
 }
