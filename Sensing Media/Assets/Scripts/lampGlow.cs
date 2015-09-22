@@ -3,17 +3,25 @@ using System.Collections;
 
 public class lampGlow : MonoBehaviour {
 
-	int intensity = 0; //0-255
-	int t = 1 / intensity; //0-1
-	public Color color0 = Color.white;
-	public Color color1 = Color.black;
+	int intensity = 1; //0-255
+	int t = 0;
 	public Shader lerpedColor;
+	public Color color0;
+
 
 	void Start () {
-		lerpedColor = GetComponent<Shader>();
+
+
 	}
 	
 	void Update () {
-		lerpedColor.Albedo = Color.Lerp(Color.white, Color.black, t);
+		t = 1 / intensity; //0-1
+		color0 = Color.Lerp(Color.white, Color.black, t);
+		gameObject.GetComponent<Renderer>().material.color = Color(0.777, 08, 0.604);
+
+	}
+	public void glowSlider(int newIntensity){
+		intensity = newIntensity;
+		Debug.Log (newIntensity);
 	}
 }
