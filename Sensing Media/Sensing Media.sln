@@ -17,7 +17,11 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+<<<<<<< HEAD
 																										GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																											GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> 69c3598a4153d3f9004aef308cfa38f8f8c3a23b
 =======
 										GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> .merge_file_a21564
