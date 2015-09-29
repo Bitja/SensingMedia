@@ -52,10 +52,14 @@
      <Compile Include="Assets\Scripts\getPosition1.cs" />
      <Compile Include="Assets\Scripts\lampGlow.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
 =======
+=======
+     <Compile Include="Assets\Scripts\pathTracer.cs" />
+>>>>>>> master
      <Compile Include="Assets\Scripts\touchInput.cs" />
 >>>>>>> 582317ccb5e2075b3a5de97791f7e75950f0a81c
  <Reference Include="UnityEngine.UI">
