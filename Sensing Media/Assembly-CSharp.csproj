@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\ChangeScene.cs" />
      <Compile Include="Assets\Scripts\Mark.cs" />
      <Compile Include="Assets\Scripts\TraceMap.cs" />
+     <Compile Include="Assets\Scripts\WhitePixelCount.cs" />
      <Compile Include="Assets\Scripts\button.cs" />
      <Compile Include="Assets\Scripts\getPosition.cs" />
      <Compile Include="Assets\Scripts\getPosition1.cs" />
