@@ -40,7 +40,15 @@ public class pathTracer : MonoBehaviour {
                     points = MakeSmoothCurve(points,100.0f);
                     int xi = (int)x;
                     int yj = (int)y;
-                    
+
+                    /*
+                    for (int i = xi - 1; i < xi + 1; i++) // look-up matrix colomns
+                        for (int j = yj - 1; j < yj + 1; j++) {  // look-up matrix  rows
+                            tex.SetPixel((int)(points[i].x), (int)(points[i].y), Color.blue);
+                            tex.SetPixel((int)(points[j].x), (int)(points[j].y), Color.blue);
+                        }
+                    */
+
                     for (int p = 0; p < points.Length; p++) 
                         tex.SetPixel((int)(points[p].x), (int)(points[p].y), Color.blue);
                 }
