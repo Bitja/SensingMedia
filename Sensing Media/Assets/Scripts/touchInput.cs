@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class touchInput : MonoBehaviour {
-    Camera camera;
+    Camera cam;
     public LayerMask touchInputMask;
 
     private List<GameObject> touchList = new List<GameObject>();
@@ -12,7 +12,7 @@ public class touchInput : MonoBehaviour {
     
 
     void Start() {
-        camera = GetComponent<Camera>();
+        cam = GetComponent<Camera>();
         touchList = new List<GameObject>();
     }
 
@@ -25,7 +25,7 @@ public class touchInput : MonoBehaviour {
             touchList.CopyTo(touchesOld);
             touchList.Clear();
 
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit, touchInputMask)) {
 
@@ -61,7 +61,7 @@ public class touchInput : MonoBehaviour {
 
             foreach (Touch touch in Input.touches){
 
-                Ray ray = camera.ScreenPointToRay(touch.position);
+                Ray ray = cam.ScreenPointToRay(touch.position);
                 
 
                 if (Physics.Raycast(ray, out hit, touchInputMask)){
