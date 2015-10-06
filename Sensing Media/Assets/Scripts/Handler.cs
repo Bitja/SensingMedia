@@ -34,6 +34,8 @@ public class Handler : MonoBehaviour {
         {
             state++;
             timestampBeg = getMillis();
+            PathTracer.toggle(true);
+            countStart = PathTracer.countPixels(Color.white);
             Debug.Log("Starting");
         }
     }
@@ -44,14 +46,16 @@ public class Handler : MonoBehaviour {
         {
             state++;
             timestampEnd = getMillis();
+            countEnd = PathTracer.countPixels(Color.white);
 
             dataList[stage] = new data();
             dataList[stage].millis = timestampEnd - timestampBeg;
-            dataList[stage].accuracy = countEnd / countStart;
+            dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart ;
             dataList[stage].count = countEnd;
 
             Debug.Log("Ending");
             Debug.Log("Time: " + (dataList[stage].millis / 1000.0f));
+            Debug.Log("Accuracy: " + dataList[stage].accuracy);
         }
     }
 

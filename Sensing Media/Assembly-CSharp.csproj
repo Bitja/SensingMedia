@@ -49,14 +49,11 @@
      <Compile Include="Assets\ScriptPathTracer\Bresenham.cs" />
      <Compile Include="Assets\ScriptPathTracer\DrawLine.cs" />
      <Compile Include="Assets\ScriptPathTracer\Mark.cs" />
-     <Compile Include="Assets\ScriptPathTracer\pathTracer.cs" />
      <Compile Include="Assets\Scripts\ChangeScene.cs" />
-<<<<<<< HEAD
      <Compile Include="Assets\Scripts\Circle.cs" />
      <Compile Include="Assets\Scripts\Handler.cs" />
-=======
+     <Compile Include="Assets\Scripts\PathTracer.cs" />
      <Compile Include="Assets\Scripts\WhitePixelCount.cs" />
->>>>>>> 0de8cf6432dbc06b40b40f357a2acdeba07e366d
      <Compile Include="Assets\Scripts\button.cs" />
      <Compile Include="Assets\Scripts\getPosition.cs" />
      <Compile Include="Assets\Scripts\getPosition1.cs" />

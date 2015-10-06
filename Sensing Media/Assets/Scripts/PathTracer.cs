@@ -3,46 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class pathTracer : MonoBehaviour {
+public class PathTracer : MonoBehaviour {
 
     public float moveSpeed = 1.0f;
     public Texture2D texture;
+    public GameObject textObject;
 
-    private Texture2D clone;
+    private static Texture2D clone;
+    private static bool isEnabled = false;
+
     private float preX = -1;
     private float preY = -1;
-    List<Vector2> points;
+    private List<Vector2> points;
 
     private Color white = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-    private int matches;
     private float startPixels = 0.0f;
     private float currentPixels = 0.0f;
     private float percentageHit = 0.0f;
-    // public GUIText score;
-    public GameObject textObject;
-  
+
     void Start() {
         clone = Instantiate(texture);
         GetComponent<Renderer>().material.mainTexture = clone;
     }
 
     void Update() {
-        if (Input.GetKey("t")) {
-           startPixels = CountPixels(clone, white);
-            Debug.Log(startPixels);
-        }
-        else if (Input.GetKey("y")) {
-            currentPixels = CountPixels(clone, white);
-            Debug.Log(currentPixels);
-        }
-        else if (Input.GetKey("q")) {
-            percentageHit = 100 - (currentPixels / startPixels) * 100.0f;
-            Debug.Log(percentageHit);
-            //Component<GUIText>().text = "Score: " + percentageHit;
-            Text guiScore = textObject.GetComponent<Text>();
-             guiScore.text = "Score: " + percentageHit;
+        if (!isEnabled)
+            return;
 
-        }
         if (Input.GetMouseButton(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Send a ray to collide with the plane
             RaycastHit hit;
@@ -66,16 +53,13 @@ public class pathTracer : MonoBehaviour {
                     int xi = (int)x;
                     int yj = (int)y;
 
-                    /*
-                    for (int i = xi - 1; i < xi + 1; i++) // look-up matrix colomns
-                        for (int j = yj - 1; j < yj + 1; j++) {  // look-up matrix  rows
-                            tex.SetPixel((int)(points[i].x), (int)(points[i].y), Color.blue);
-                            tex.SetPixel((int)(points[j].x), (int)(points[j].y), Color.blue);
-                        }
-                    */
+                    for (int p = 0; p < points.Length; p++) {
+                        tex.SetPixel((int)(points[p].x + 1), (int)(points[p].y + 0), Color.blue);
+                        tex.SetPixel((int)(points[p].x + 0), (int)(points[p].y + 1), Color.blue);
+                        tex.SetPixel((int)(points[p].x + 2), (int)(points[p].y + 1), Color.blue);
+                        tex.SetPixel((int)(points[p].x + 1), (int)(points[p].y + 2), Color.blue);
+                    }
 
-                    for (int p = 0; p < points.Length; p++) 
-                        tex.SetPixel((int)(points[p].x), (int)(points[p].y), Color.blue);
                 }
                 preX = x;
                 preY = y;
@@ -114,12 +98,18 @@ public class pathTracer : MonoBehaviour {
         }
         return (curvedPoints.ToArray());
     }
-    private int CountPixels(Texture2D bm, Color target_color) {
-        // Loop through the pixels.
-        matches = 0;
-        for (int y = 0; y < bm.height; y++){
-            for (int x = 0; x < bm.width; x++){
-                if (bm.GetPixel(x, y) == target_color) matches++;
+
+    public static void toggle(bool b)
+    {
+        isEnabled = b;
+    }
+
+    public static int countPixels(Color target_color)
+    {
+        int matches = 0;
+        for (int y = 0; y < clone.height; y++){
+            for (int x = 0; x < clone.width; x++){
+                if (clone.GetPixel(x, y) == target_color) matches++;
             }
         }
         return matches;
