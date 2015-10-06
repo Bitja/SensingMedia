@@ -5,13 +5,13 @@ using System.Collections;
 
 public class WhitePixelCount : MonoBehaviour {
     public Texture2D OriTex;
-    public Texture2D EndTex;
+    
     private Color white = new Color(0.0f, 0.0f, 0.0f, 1.0f);
     private int matches = 0;
     // Use this for initialization
     void Start () {
         GetComponent<Renderer>().material.mainTexture = OriTex;
-        GetComponent<Renderer>().material.
+        //GetComponent<Renderer>().material.
        
     }
 
@@ -25,7 +25,7 @@ public class WhitePixelCount : MonoBehaviour {
         }
         if (Input.GetKey("y"))
         {
-            CountPixels(EndTex, white);
+            CountPixels(OriTex, white);
             Debug.Log(matches);        
         }
         
