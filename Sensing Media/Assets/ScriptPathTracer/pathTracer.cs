@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class pathTracer : MonoBehaviour {
 
@@ -12,13 +13,37 @@ public class pathTracer : MonoBehaviour {
     private float preY = -1;
     List<Vector2> points;
 
+    private Color white = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    private int matches;
+    private float startPixels = 0.0f;
+    private float currentPixels = 0.0f;
+    private float percentageHit = 0.0f;
+    // public GUIText score;
+    public GameObject textObject;
+  
     void Start() {
         clone = Instantiate(texture);
         GetComponent<Renderer>().material.mainTexture = clone;
     }
 
     void Update() {
-        if(Input.GetMouseButton(0)) {
+        if (Input.GetKey("t")) {
+           startPixels = CountPixels(clone, white);
+            Debug.Log(startPixels);
+        }
+        else if (Input.GetKey("y")) {
+            currentPixels = CountPixels(clone, white);
+            Debug.Log(currentPixels);
+        }
+        else if (Input.GetKey("q")) {
+            percentageHit = 100 - (currentPixels / startPixels) * 100.0f;
+            Debug.Log(percentageHit);
+            //Component<GUIText>().text = "Score: " + percentageHit;
+            Text guiScore = textObject.GetComponent<Text>();
+             guiScore.text = "Score: " + percentageHit;
+
+        }
+        if (Input.GetMouseButton(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Send a ray to collide with the plane
             RaycastHit hit;
 
@@ -40,7 +65,15 @@ public class pathTracer : MonoBehaviour {
                     points = MakeSmoothCurve(points,100.0f);
                     int xi = (int)x;
                     int yj = (int)y;
-                    
+
+                    /*
+                    for (int i = xi - 1; i < xi + 1; i++) // look-up matrix colomns
+                        for (int j = yj - 1; j < yj + 1; j++) {  // look-up matrix  rows
+                            tex.SetPixel((int)(points[i].x), (int)(points[i].y), Color.blue);
+                            tex.SetPixel((int)(points[j].x), (int)(points[j].y), Color.blue);
+                        }
+                    */
+
                     for (int p = 0; p < points.Length; p++) 
                         tex.SetPixel((int)(points[p].x), (int)(points[p].y), Color.blue);
                 }
@@ -80,6 +113,16 @@ public class pathTracer : MonoBehaviour {
             curvedPoints.Add(points[0]);
         }
         return (curvedPoints.ToArray());
+    }
+    private int CountPixels(Texture2D bm, Color target_color) {
+        // Loop through the pixels.
+        matches = 0;
+        for (int y = 0; y < bm.height; y++){
+            for (int x = 0; x < bm.width; x++){
+                if (bm.GetPixel(x, y) == target_color) matches++;
+            }
+        }
+        return matches;
     }
 
     /*
