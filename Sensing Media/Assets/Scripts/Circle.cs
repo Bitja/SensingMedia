@@ -35,5 +35,9 @@ public class Circle : MonoBehaviour {
     void Update()
     {
         mouseEnabled = true;
+        /*if (ChangeScene.changedScene) {
+            mouseEnabled = false;
+        }*/
+
     }
 }

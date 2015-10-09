@@ -6,28 +6,35 @@ public class lampGlow : MonoBehaviour {
 
 	public Color colorStart = Color.white;
 	public Color colorEnd = Color.black;
-	public float duration = 1.0F;
-	public Renderer rend;
+    //public Color colPstart;
+    //public ParticleSystem rendParticles;
+    //public Color colPend;
+    public Renderer rend;
+    //public float duration = 1.0F;
 	public float intencity;
+    public bool isOn = true;
+    //private Particle particles;
+    //public Color startColor;
 
-	void Start () {
+    public void toggle(bool b) {
+        isOn = b;
+    }
+    void Start () {
+		rend = GetComponentInChildren<Renderer>();
+       // rendParticles = GetComponentInChildren<ParticleSystem>();
+     /*   colPstart = rendParticles.GetComponent<ParticleSystem>().startColor;
+        colPstart = new Color(0, 0, 0, 1.0f);
+        colPend = rendParticles.GetComponent<ParticleSystem>().startColor;
+        colPend= new Color(1.0f, 1.0f, 1.0f, 1.0f);
+      */  
+    }
 
-		rend = GetComponent<Renderer>();
-
-	}
-	public void LightIntencity(float newIntencity) {
-		intencity = newIntencity;
-		Debug.Log (intencity);
-
-
-	
-	}
-
-	void Update () {
-		//float intencity = Mathf.PingPong(Time.time, duration) / duration;
-		rend.material.color = Color.Lerp(colorStart, colorEnd, intencity);
-	//	Debug.Log (intencity);
-
-
-	}
+    void Update() {
+        rend.enabled = false;
+        if (isOn) {
+            rend.enabled = true;
+            rend.material.color = Color.Lerp(colorStart, colorEnd, PathTracer.nearestP);
+            //rendParticles.startColor = Color.Lerp(colPstart, colPend, PathTracer.nearestP);
+        }
+    }
 }

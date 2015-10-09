@@ -5,34 +5,39 @@ using UnityEngine.UI;
 
 public class PathTracer : MonoBehaviour {
 
-    public float moveSpeed = 1.0f;
     public Texture2D texture;
-    public GameObject textObject;
-
     private static Texture2D clone;
     private static bool isEnabled = false;
-
+    private static Text guiScore;
+    private static Text guiTime;
     private float preX = -1;
     private float preY = -1;
+    private RaycastHit hit;
+
     private List<Vector2> points;
+    public GameObject scoreObject;
+    public GameObject timeObject;
+    public GameObject UIobj;
+    public bool isOn = true;
+    private Collision collision;
+    public static float nearestP;
 
-    private Color white = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-    private float startPixels = 0.0f;
-    private float currentPixels = 0.0f;
-    private float percentageHit = 0.0f;
-
+    public void UItoggle(bool b) {
+        isOn = b;
+    }
     void Start() {
         clone = Instantiate(texture);
         GetComponent<Renderer>().material.mainTexture = clone;
+        guiScore = scoreObject.GetComponent<Text>();
+        guiTime = timeObject.GetComponent<Text>();
     }
 
     void Update() {
         if (!isEnabled)
             return;
-
+        
         if (Input.GetMouseButton(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Send a ray to collide with the plane
-            RaycastHit hit;
 
             if (GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity)) {
                 Vector2 uv;
@@ -42,7 +47,22 @@ public class PathTracer : MonoBehaviour {
                 float x = uv.x * tex.width;
                 float y = uv.y * tex.height;
                 Vector2 point = new Vector2(x, y);
-                tex.SetPixel((int)(uv.x * tex.width), (int)(uv.y * tex.height), Color.red);
+
+                /*
+                // planeUI toggle
+                if (isOn) {
+                    Vector3 toggleOut = new Vector3(-3.5f, 0, 0);
+                    UIobj.transform.position += toggleOut;
+                    isOn = false;
+                    Debug.Log("false");
+                }
+                else if (!isOn && hit.transform.name == "UIobj") {
+                    Debug.Log("true");
+                    Vector3 toggleIn = new Vector3(3.5f, 0, 0);
+                    UIobj.transform.position += toggleIn;
+                    isOn = true;
+                }
+                */
 
                 if (preX >= 0) { 
                     Vector2 prePoint = new Vector2(preX, preY);
@@ -50,16 +70,34 @@ public class PathTracer : MonoBehaviour {
                     points[0] = prePoint;
                     points[1] = point;
                     points = MakeSmoothCurve(points,100.0f);
-                    int xi = (int)x;
-                    int yj = (int)y;
 
+                    int kernel = 15;
+                    nearestP = kernel;
                     for (int p = 0; p < points.Length; p++) {
-                        tex.SetPixel((int)(points[p].x + 1), (int)(points[p].y + 0), Color.blue);
-                        tex.SetPixel((int)(points[p].x + 0), (int)(points[p].y + 1), Color.blue);
-                        tex.SetPixel((int)(points[p].x + 2), (int)(points[p].y + 1), Color.blue);
-                        tex.SetPixel((int)(points[p].x + 1), (int)(points[p].y + 2), Color.blue);
+                        for (int i = -kernel / 2; i <= kernel / 2; i++)
+                            for (int j = -kernel / 2; j <= kernel / 2; j++) {
+                                float pDistance = Mathf.Sqrt(Mathf.Pow(i, 2) + Mathf.Pow(j, 2));
+                                if (pDistance <= kernel / 2.0) {
+                                    Color pColor = tex.GetPixel((int)(points[p].x + i), (int)(points[p].y + j));
+                                    if (pColor == Color.white || pColor == Color.red) {
+                                        if (pColor == Color.white)
+                                            tex.SetPixel((int)(points[p].x + i), (int)(points[p].y + j), Color.red);
+                                        if (nearestP > pDistance)
+                                            nearestP = pDistance;
+                                    }
+                                    else
+                                        tex.SetPixel((int)(points[p].x + i), (int)(points[p].y + j), Color.blue);
+                                }
+                            }
                     }
+                    nearestP /= kernel;
+                    //Debug.Log(nearestP);
 
+                    // nearestP : value between 0 and 1
+                    /*
+                    
+
+                    */
                 }
                 preX = x;
                 preY = y;
@@ -67,9 +105,15 @@ public class PathTracer : MonoBehaviour {
             } 
         }
         else if (!Input.GetMouseButton(0) && preX >= 0) {
-            preX = -1;  // purely change of condition
+            preX = -1;   
         }
     }
+
+    public static void displayScore() {
+        guiScore.text = "Score: " + Handler.getAccuracy();
+        guiTime.text = "Time: " + Handler.timeDisplay;
+        toggle(false);
+    }  
 
     //arrayToCurve is original Vector3 array, smoothness is the number of interpolations. 
     public static Vector2[] MakeSmoothCurve(Vector2[] arrayToCurve, float smoothness) {
@@ -99,13 +143,11 @@ public class PathTracer : MonoBehaviour {
         return (curvedPoints.ToArray());
     }
 
-    public static void toggle(bool b)
-    {
+    public static void toggle(bool b) {
         isEnabled = b;
     }
 
-    public static int countPixels(Color target_color)
-    {
+    public static int countPixels(Color target_color) {
         int matches = 0;
         for (int y = 0; y < clone.height; y++){
             for (int x = 0; x < clone.width; x++){
@@ -114,46 +156,4 @@ public class PathTracer : MonoBehaviour {
         }
         return matches;
     }
-
-    /*
-    void DrawLine(Texture2D tex, int x0, int y0, int x1, int y1, Color col) {
-        int dy = (int)(y1 - y0);
-        int dx = (int)(x1 - x0);
-        int stepx, stepy;
-
-        if (dy < 0) { dy = -dy; stepy = -1; }
-        else { stepy = 1; }
-        if (dx < 0) { dx = -dx; stepx = -1; }
-        else { stepx = 1; }
-        dy <<= 1;
-        dx <<= 1;
-
-        float fraction = 0;
-
-        tex.SetPixel(x0, y0, col);
-        if (dx > dy) {
-            fraction = dy - (dx >> 1);
-            while (Mathf.Abs(x0 - x1) > 1) {
-                if (fraction >= 0) {
-                    y0 += stepy;
-                    fraction -= dx;
-                }
-                x0 += stepx;
-                fraction += dy;
-                tex.SetPixel(x0, y0, col);
-            }
-        }
-        else {
-            fraction = dx - (dy >> 1);
-            while (Mathf.Abs(y0 - y1) > 1) {
-                if (fraction >= 0) {
-                    x0 += stepx;
-                    fraction -= dy;
-                }
-                y0 += stepy;
-                fraction += dx;
-                tex.SetPixel(x0, y0, col);
-            }
-        }
-    } */
 }

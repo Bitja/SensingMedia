@@ -5,13 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/ScenesOLD/00_TouchInputScene.unity
+  - enabled: 0
+    path: Assets/ScenesOLD/01_GetPosition.unity
+  - enabled: 0
+    path: Assets/ScenesOLD/02_Particles.unity
+  - enabled: 0
+    path: Assets/ScenesOLD/03_Animated.unity
+  - enabled: 0
+    path: Assets/ScenesOLD/Lamp.unity
   - enabled: 1
-    path: Assets/00_TouchInputScene.unity
+    path: Assets/Lvl1.unity
   - enabled: 1
-    path: Assets/01_GetPosition.unity
+    path: Assets/Lvl2.unity
   - enabled: 1
-    path: Assets/02_Particles.unity
-  - enabled: 1
-    path: Assets/03_Animated.unity
-  - enabled: 1
-    path: Assets/Scene 1.unity
+    path: Assets/Lvl3.unity
