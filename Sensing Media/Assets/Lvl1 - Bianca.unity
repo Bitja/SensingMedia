@@ -3202,8 +3202,6 @@ GameObject:
   - 23: {fileID: 879611016}
   - 114: {fileID: 879611015}
   - 114: {fileID: 879611014}
-  - 65: {fileID: 879611013}
-  - 54: {fileID: 879611012}
   m_Layer: 0
   m_Name: CylinderMouseOffset
   m_TagString: Player
@@ -3211,33 +3209,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &879611012
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 879611011}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!65 &879611013
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 879611011}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.00000012, y: 1.99999964, z: 1}
-  m_Center: {x: -1.84774399e-06, y: 5.42101086e-20, z: -5.66244125e-07}
 --- !u!114 &879611014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3839,7 +3810,7 @@ Canvas:
   serializedVersion: 2
   m_RenderMode: 1
   m_Camera: {fileID: 619871960}
-  m_PlaneDistance: 5
+  m_PlaneDistance: 25
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -6428,6 +6399,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1928875789}
   - 65: {fileID: 1928875790}
+  - 54: {fileID: 1928875791}
   m_Layer: 0
   m_Name: UIobj
   m_TagString: Untagged
@@ -6442,8 +6414,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1928875788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 445.066193, y: 0, z: 513.000122}
-  m_LocalScale: {x: 58.136776, y: 47.2094116, z: 41.8000069}
+  m_LocalPosition: {x: 445.066193, y: 0, z: 2731}
+  m_LocalScale: {x: 58.136776, y: 47.2094116, z: 218.670242}
   m_Children: []
   m_Father: {fileID: 1415064010}
   m_RootOrder: 0
@@ -6459,6 +6431,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .980000019, y: 10, z: 1}
   m_Center: {x: -3.03999996, y: 0, z: -12}
+--- !u!54 &1928875791
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1928875788}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1941966172
 GameObject:
   m_ObjectHideFlags: 0
