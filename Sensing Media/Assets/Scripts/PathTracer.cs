@@ -5,26 +5,18 @@ using UnityEngine.UI;
 
 public class PathTracer : MonoBehaviour {
 
+    public GameObject scoreObject, timeObject;
     public Texture2D texture;
     private static Texture2D clone;
-    private static bool isEnabled = false;
-    private static Text guiScore;
-    private static Text guiTime;
+    public static bool isEnabled = false;
+    private static Text guiScore, guiTime;
     private float preX = -1;
     private float preY = -1;
     private RaycastHit hit;
-
     private List<Vector2> points;
-    public GameObject scoreObject;
-    public GameObject timeObject;
-    public GameObject UIobj;
-    public bool isOn = true;
-    private Collision collision;
     public static float nearestP;
+    //public GameObject UIobj;
 
-    public void UItoggle(bool b) {
-        isOn = b;
-    }
     void Start() {
         clone = Instantiate(texture);
         GetComponent<Renderer>().material.mainTexture = clone;
@@ -38,17 +30,8 @@ public class PathTracer : MonoBehaviour {
         
         if (Input.GetMouseButton(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Send a ray to collide with the plane
-
-            if (GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity)) {
-                Vector2 uv;
-                uv.x = (hit.point.x - hit.collider.bounds.min.x) / hit.collider.bounds.size.x;
-                uv.y = (hit.point.y - hit.collider.bounds.min.y) / hit.collider.bounds.size.y;
-                Texture2D tex = (Texture2D)hit.transform.gameObject.GetComponent<Renderer>().sharedMaterial.mainTexture;
-                float x = uv.x * tex.width;
-                float y = uv.y * tex.height;
-                Vector2 point = new Vector2(x, y);
-
-                /*
+            
+            /*
                 // planeUI toggle
                 if (isOn) {
                     Vector3 toggleOut = new Vector3(-3.5f, 0, 0);
@@ -64,12 +47,21 @@ public class PathTracer : MonoBehaviour {
                 }
                 */
 
-                if (preX >= 0) { 
+            if (GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity)) { // change
+                Vector2 uv;
+                uv.x = (hit.point.x - hit.collider.bounds.min.x) / hit.collider.bounds.size.x;
+                uv.y = (hit.point.y - hit.collider.bounds.min.y) / hit.collider.bounds.size.y;
+                Texture2D tex = (Texture2D)hit.transform.gameObject.GetComponent<Renderer>().sharedMaterial.mainTexture;
+                float x = uv.x * tex.width;
+                float y = uv.y * tex.height;
+                Vector2 point = new Vector2(x, y);
+
+                if (preX >= 0) {
                     Vector2 prePoint = new Vector2(preX, preY);
                     Vector2[] points = new Vector2[2];
                     points[0] = prePoint;
                     points[1] = point;
-                    points = MakeSmoothCurve(points,100.0f);
+                    points = MakeSmoothCurve(points, 100.0f);
 
                     int kernel = 15;
                     nearestP = kernel;
@@ -102,16 +94,17 @@ public class PathTracer : MonoBehaviour {
                 preX = x;
                 preY = y;
                 tex.Apply();
-            } 
+            }
         }
         else if (!Input.GetMouseButton(0) && preX >= 0) {
-            preX = -1;   
+            preX = -1;
         }
+        
     }
 
     public static void displayScore() {
-        guiScore.text = "Score: " + Handler.getAccuracy();
-        guiTime.text = "Time: " + Handler.timeDisplay;
+        guiScore.text = "Score: " + Handler.getAccuracy() + "%";
+        guiTime.text = "Time: " + Handler.timeDisplay + " seconds";
         toggle(false);
     }  
 

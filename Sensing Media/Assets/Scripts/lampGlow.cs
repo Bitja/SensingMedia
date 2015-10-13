@@ -21,12 +21,6 @@ public class lampGlow : MonoBehaviour {
     }
     void Start () {
 		rend = GetComponentInChildren<Renderer>();
-       // rendParticles = GetComponentInChildren<ParticleSystem>();
-     /*   colPstart = rendParticles.GetComponent<ParticleSystem>().startColor;
-        colPstart = new Color(0, 0, 0, 1.0f);
-        colPend = rendParticles.GetComponent<ParticleSystem>().startColor;
-        colPend= new Color(1.0f, 1.0f, 1.0f, 1.0f);
-      */  
     }
 
     void Update() {
@@ -34,7 +28,6 @@ public class lampGlow : MonoBehaviour {
         if (isOn) {
             rend.enabled = true;
             rend.material.color = Color.Lerp(colorStart, colorEnd, PathTracer.nearestP);
-            //rendParticles.startColor = Color.Lerp(colPstart, colPend, PathTracer.nearestP);
         }
     }
 }
