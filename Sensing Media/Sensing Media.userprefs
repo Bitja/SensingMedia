@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\lampGlow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\NewLevel.cs">
     <Files>
-      <File FileName="Assets\Scripts\lampGlow.cs" Line="12" Column="2" />
+      <File FileName="Assets\Scripts\ChangeScene.cs" Line="6" Column="4" />
+      <File FileName="Assets\Scripts\NewLevel.cs" Line="6" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

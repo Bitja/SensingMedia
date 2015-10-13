@@ -16,28 +16,22 @@ public class Circle : MonoBehaviour {
         defaultColour = mat.color;
     }
 
-    void OnTouchDown() {
-        if (id == 1)
-        {
+    void OnCollisionEnter(Collision col) { //OnTouchDown() {
+        if (col.gameObject.name == "CylinderMouse" && id==1) { 
             Handler.prepare();
             mouseEnabled = false;
         }
-        else if (id == 2)
+        else if (col.gameObject.name == "CylinderMouse" && id==2)
             Handler.end();
         mat.color = selectedColour;
     }
-    void OnTouchExit() {
+    void OnCollisionExit(Collision col) {//OnTouchExit() {
         if (id == 0 && mouseEnabled)
             Handler.start();
         mat.color = defaultColour;
     }
 
-    void Update()
-    {
+    void Update() {
         mouseEnabled = true;
-        /*if (ChangeScene.changedScene) {
-            mouseEnabled = false;
-        }*/
-
     }
 }

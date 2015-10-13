@@ -10,7 +10,6 @@ public class touchInput : MonoBehaviour {
     private GameObject[] touchesOld;
     private RaycastHit hit;
     
-
     void Start() {
         cam = GetComponent<Camera>();
         touchList = new List<GameObject>();
@@ -32,7 +31,6 @@ public class touchInput : MonoBehaviour {
                 GameObject recipient = hit.transform.gameObject;
                 touchList.Add(recipient);
 
-
                 if (Input.GetMouseButtonDown(0)) {
                     recipient.SendMessage("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
                 }
@@ -53,43 +51,44 @@ public class touchInput : MonoBehaviour {
 #endif
 
         if (Input.touchCount > 0) {
-
             touchesOld = new GameObject[touchList.Count];
             touchList.CopyTo(touchesOld);
             touchList.Clear();
 
-
-            foreach (Touch touch in Input.touches){
-
+            foreach (Touch touch in Input.touches) {
                 Ray ray = cam.ScreenPointToRay(touch.position);
-                
 
-                if (Physics.Raycast(ray, out hit, touchInputMask)){
+                /*Touch[] touches = Input.touches;
+                if (Input.touchCount >= 2) {
+                    Vector2 center = (touches[Input.touchCount - 1].position + touches[Input.touchCount].position)/2;
+                    Ray rayCenter = Camera.main.ScreenPointToRay(center);
+                    //if (Physics.Raycast(rayCenter, out hit))
+                    //  hit.rigidbody.rotation = new Quaternion(0, 0, 0, 0);
+                    //}*/
+                    if (Physics.Raycast(ray, out hit, touchInputMask)) { //rayCenter
+                        GameObject recipient = hit.transform.gameObject;
+                        touchList.Add(recipient);
 
-                    GameObject recipient = hit.transform.gameObject;
-                    touchList.Add(recipient);
-
-
-                    if (touch.phase == TouchPhase.Began){
-                        recipient.SendMessage("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
-                    }
-                    if (touch.phase == TouchPhase.Ended){
-                        recipient.SendMessage("OnTouchUp", hit.point, SendMessageOptions.DontRequireReceiver);
-                    }
-                    if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved){ // might switch stationary and moved
-                        recipient.SendMessage("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
-                    }
-                    if (touch.phase == TouchPhase.Canceled){
-                        recipient.SendMessage("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
+                        if (touch.phase == TouchPhase.Began) {
+                            recipient.SendMessage("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
+                        }
+                        if (touch.phase == TouchPhase.Ended) {
+                            recipient.SendMessage("OnTouchUp", hit.point, SendMessageOptions.DontRequireReceiver);
+                        }
+                        if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) { 
+                            recipient.SendMessage("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
+                        }
+                        if (touch.phase == TouchPhase.Canceled) {
+                            recipient.SendMessage("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
+                        }
                     }
                 }
-            }
-            foreach(GameObject g in touchesOld) {
-                if (!touchList.Contains(g)) {
-                    g.SendMessage("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
+                foreach (GameObject g in touchesOld) {
+                    if (!touchList.Contains(g)) {
+                        g.SendMessage("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
+                    }
                 }
-            }
+            //}
         }
-
 	}
 }
