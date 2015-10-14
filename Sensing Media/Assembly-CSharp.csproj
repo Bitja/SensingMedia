@@ -45,12 +45,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ChangeScene.cs" />
+     <Compile Include="Assets\Scripts\CanvasToggle.cs" />
      <Compile Include="Assets\Scripts\Circle.cs" />
      <Compile Include="Assets\Scripts\GetMouseOfset.cs" />
      <Compile Include="Assets\Scripts\Handler.cs" />
      <Compile Include="Assets\Scripts\NewLevel.cs" />
      <Compile Include="Assets\Scripts\PathTracer.cs" />
+     <Compile Include="Assets\Scripts\ScriptOLD\ChangeScene.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\GetMousePosition.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\WhitePixelCount.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\button.cs" />

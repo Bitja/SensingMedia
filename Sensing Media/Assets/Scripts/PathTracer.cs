@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class PathTracer : MonoBehaviour {
 
     public GameObject scoreObject, timeObject;
-    public Texture2D texture;
-    private static Texture2D clone;
     public static bool isEnabled = false;
     private static Text guiScore, guiTime;
     private float preX = -1;
@@ -15,11 +13,9 @@ public class PathTracer : MonoBehaviour {
     private RaycastHit hit;
     private List<Vector2> points;
     public static float nearestP;
-    //public GameObject UIobj;
+    private int changeTex;
 
     void Start() {
-        clone = Instantiate(texture);
-        GetComponent<Renderer>().material.mainTexture = clone;
         guiScore = scoreObject.GetComponent<Text>();
         guiTime = timeObject.GetComponent<Text>();
     }
@@ -50,9 +46,9 @@ public class PathTracer : MonoBehaviour {
                             if (pDistance <= width / 2.0)
                             {
                                 Color pColor = tex.GetPixel((int)(x + i), (int)(y + j));
-                                if (pColor == Color.white || pColor == Color.red)
+                                if (pColor != Color.black)
                                 {
-                                    if (pColor == Color.white)
+                                    if (pColor != Color.red)
                                         tex.SetPixel((int)(x + i), (int)(y + j), Color.red);
                                     if (nearestP > pDistance)
                                         nearestP = pDistance;
@@ -69,7 +65,7 @@ public class PathTracer : MonoBehaviour {
                     B.x = x;
                     B.y = y;
                     float angle = Vector3.Angle(A, B);
-                    Debug.Log(angle);
+                    //Debug.Log(angle);
 
                 }
                 preX = x;
@@ -123,9 +119,9 @@ public class PathTracer : MonoBehaviour {
 
     public static int countPixels(Color target_color) {
         int matches = 0;
-        for (int y = 0; y < clone.height; y++){
-            for (int x = 0; x < clone.width; x++){
-                if (clone.GetPixel(x, y) == target_color) matches++;
+        for (int y = 0; y < NewLevel.clone.height; y++){ // fejl
+            for (int x = 0; x < NewLevel.clone.width; x++){
+                if (NewLevel.clone.GetPixel(x, y) == target_color) matches++;
             }
         }
         return matches;

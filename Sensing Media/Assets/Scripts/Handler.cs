@@ -22,7 +22,7 @@ public class Handler : MonoBehaviour {
 
     public static void prepare() {
         if (state == 0) {
-            PathTracer.toggle(true);
+            PathTracer.toggle(true); //fejl
             state++;
             Debug.Log("Preparing for Start");
         }
