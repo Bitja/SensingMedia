@@ -21,13 +21,14 @@ public class Circle : MonoBehaviour {
             Handler.prepare();
             mouseEnabled = false;
         }
-        else if (col.gameObject.name == "CylinderMouse" && id==2)
-            Handler.end();
+       
         mat.color = selectedColour;
     }
     void OnCollisionExit(Collision col) {//OnTouchExit() {
         if (id == 0 && mouseEnabled)
             Handler.start();
+        else if (col.gameObject.name == "CylinderMouse" && id == 2) // moved here to cheat the delay! BUT: I can make it draw a bit more in the delay, just a tiny bit.
+            Handler.end();
         mat.color = defaultColour;
     }
 

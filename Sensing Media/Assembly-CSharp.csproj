@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Circle.cs" />
      <Compile Include="Assets\Scripts\GetMouseOfset.cs" />
      <Compile Include="Assets\Scripts\GradiantLamp.cs" />
+     <Compile Include="Assets\Scripts\GradientColor.cs" />
      <Compile Include="Assets\Scripts\Handler.cs" />
      <Compile Include="Assets\Scripts\NewLevel.cs" />
      <Compile Include="Assets\Scripts\PathTracer.cs" />

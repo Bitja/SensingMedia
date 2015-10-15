@@ -13,8 +13,8 @@ public class PathTracer : MonoBehaviour {
     private RaycastHit hit;
     private List<Vector2> points;
     public static float nearestP;
-    public static float nearestPdelta;
     private int changeTex;
+    public static int width;
 
     void Start() {
         guiScore = scoreObject.GetComponent<Text>();
@@ -37,7 +37,7 @@ public class PathTracer : MonoBehaviour {
                 float y = uv.y * tex.height;
 
                 if (preX >= 0 && (preX != x || preY != y)) { 
-                    int width = 150;
+                    width = 30; // used for the light threshold variable
                     nearestP = width;
 
                     for (int i = -width / 2; i <= width / 2; i++)
@@ -57,9 +57,7 @@ public class PathTracer : MonoBehaviour {
                             }
                         }
   
-                    nearestP /= width;
-                    nearestPdelta = nearestP;
-
+                    nearestP /= width /= 2;
 
                     float length = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(preX - x), 2) + Mathf.Pow(Mathf.Abs(preY - y), 2));
                     Vector2 A, B;
@@ -122,7 +120,7 @@ public class PathTracer : MonoBehaviour {
         isEnabled = b;
     }
 
-    public static int countPixels(Color target_color) {
+    public static int countPixels(Color target_color) { // slow function creates a delay! Easy solution DONE: calls function when mouse moves out of each inner circle (see Handler.cs). 
         int matches = 0;
         for (int y = 0; y < NewLevel.clone.height; y++){ 
             for (int x = 0; x < NewLevel.clone.width; x++){

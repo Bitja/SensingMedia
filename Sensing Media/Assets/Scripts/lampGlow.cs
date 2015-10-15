@@ -20,18 +20,13 @@ public class lampGlow : MonoBehaviour {
 
     void Update() {
         rend.enabled = false;
-        if (isOn && PathTracer.nearestP <= 0.49) { // from start to middle
-            Debug.Log("start ->");
+        if (isOn && PathTracer.nearestP <= 0.99) { // from start to middle
             rend.enabled = true;
-            rend.material.color = Color.Lerp(colorStart, colorMiddle, PathTracer.nearestPdelta * 100);
-            Debug.Log("-> middle");
+            rend.material.color = Color.Lerp(colorStart, colorMiddle, PathTracer.nearestP * 100);
         }
-        else if (isOn && PathTracer.nearestP >= 0.5) { // from middle to end
-            Debug.Log("middle ->");
+        else if (isOn && PathTracer.nearestP >= 1) { // from middle to end
             rend.enabled = true;
-            rend.material.color = Color.Lerp(colorMiddle, colorEnd, PathTracer.nearestPdelta * 100);
-            Debug.Log("-> end");
+            rend.material.color = Color.Lerp(colorMiddle, colorEnd, PathTracer.nearestP * 100);
         }
-
     }
 }
