@@ -6,17 +6,16 @@ public class NewLevel : MonoBehaviour {
     public static Texture2D CurrentTex;
     private static Renderer rend;
     public static Texture2D clone;
-    private MeshFilter plane;
-
-
+ 
     void Start (){
 		rend = GetComponent<Renderer>();
-        plane = GetComponent(typeof(MeshFilter)) as MeshFilter;
     }
 
     public void ChangeToScene(int sceneToChangeTo){
+        PathTracer.guiTime.enabled = false;
+        PathTracer.guiScore.enabled = false;
         CurrentTex = myTextures[sceneToChangeTo];
-        rend.material.mainTexture = CurrentTex; //fejl
+        rend.material.mainTexture = CurrentTex; 
         clone = Instantiate(CurrentTex);
         GetComponent<Renderer>().material.mainTexture = clone;
         PathTracer.toggle(false);

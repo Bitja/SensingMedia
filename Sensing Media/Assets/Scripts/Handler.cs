@@ -16,14 +16,15 @@ public class Handler : MonoBehaviour {
 
     public struct data {
         public long millis;
-        public float accuracy; // need this variable to display score
+        public float accuracy;
         public int count;
     }
 
     public static void prepare() {
         if (state == 0) {
-            PathTracer.toggle(true); //fejl
+            PathTracer.toggle(true);
             state++;
+
             Debug.Log("Preparing for Start");
         }
     }
@@ -32,7 +33,6 @@ public class Handler : MonoBehaviour {
         if (state == 1) {
             state++;
             timestampBeg = getMillis();
-            
             countStart = PathTracer.countPixels(Color.white);
             Debug.Log("Starting");
         }

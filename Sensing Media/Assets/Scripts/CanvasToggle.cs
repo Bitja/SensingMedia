@@ -4,12 +4,16 @@ using UnityEngine.UI;
 
 public class CanvasToggle : MonoBehaviour {
 
-    public Canvas StartCanvas;
+    public Image imgStart;
+    public Image imgBack;
+    public ParticleSystem ParticleDown;
 
     public void CanvasHide() {
-        GameObject plane = GameObject.Find("PlaneStart");
-        //plane.GetComponent<UnityEngine.UI.Text>().CrossFadeAlpha(1f, 1.5f, false);
-        StartCanvas.enabled = false;
-        plane.SetActive(false);
+        imgStart.CrossFadeAlpha(0.0f, 0.5f, true);
+        imgBack.CrossFadeAlpha(0.0f, 2.0f, true);
+        ParticleDown.Clear(true);
+        GameObject cyl = GameObject.Find("CylinderStart");
+        cyl.SetActive(false);
+        GameObject.Find("TextAnimation").SetActive(false);
     }
 }

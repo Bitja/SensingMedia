@@ -22,7 +22,7 @@ public class Circle : MonoBehaviour {
             mouseEnabled = false;
         }
         else if (col.gameObject.name == "CylinderMouse" && id==2)
-            Handler.end();          // fejl
+            Handler.end();
         mat.color = selectedColour;
     }
     void OnCollisionExit(Collision col) {//OnTouchExit() {

@@ -7,12 +7,13 @@ public class PathTracer : MonoBehaviour {
 
     public GameObject scoreObject, timeObject;
     public static bool isEnabled = false;
-    private static Text guiScore, guiTime;
+    public static Text guiScore, guiTime;
     private float preX = -1;
     private float preY = -1;
     private RaycastHit hit;
     private List<Vector2> points;
     public static float nearestP;
+    public static float nearestPdelta;
     private int changeTex;
 
     void Start() {
@@ -36,7 +37,7 @@ public class PathTracer : MonoBehaviour {
                 float y = uv.y * tex.height;
 
                 if (preX >= 0 && (preX != x || preY != y)) { 
-                    int width = 15;
+                    int width = 150;
                     nearestP = width;
 
                     for (int i = -width / 2; i <= width / 2; i++)
@@ -57,6 +58,8 @@ public class PathTracer : MonoBehaviour {
                         }
   
                     nearestP /= width;
+                    nearestPdelta = nearestP;
+
 
                     float length = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(preX - x), 2) + Mathf.Pow(Mathf.Abs(preY - y), 2));
                     Vector2 A, B;
@@ -80,6 +83,8 @@ public class PathTracer : MonoBehaviour {
     }
 
     public static void displayScore() {
+        guiTime.enabled = true;
+        guiScore.enabled = true;
         guiScore.text = "Score: " + Handler.getAccuracy() + "%";
         guiTime.text = "Time: " + Handler.timeDisplay + " seconds";
         toggle(false);
@@ -119,7 +124,7 @@ public class PathTracer : MonoBehaviour {
 
     public static int countPixels(Color target_color) {
         int matches = 0;
-        for (int y = 0; y < NewLevel.clone.height; y++){ // fejl
+        for (int y = 0; y < NewLevel.clone.height; y++){ 
             for (int x = 0; x < NewLevel.clone.width; x++){
                 if (NewLevel.clone.GetPixel(x, y) == target_color) matches++;
             }

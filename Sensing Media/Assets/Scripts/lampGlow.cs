@@ -4,30 +4,34 @@ using System.Collections;
 
 public class lampGlow : MonoBehaviour {
 
-	public Color colorStart = Color.white;
-	public Color colorEnd = Color.black;
-    //public Color colPstart;
-    //public ParticleSystem rendParticles;
-    //public Color colPend;
-    public Renderer rend;
-    //public float duration = 1.0F;
-	public float intencity;
+    public Color colorStart = Color.white;
+    public Color colorMiddle = Color.blue;
+    public Color colorEnd = Color.black;
+    private Renderer rend;
+    public float intencity;
     public bool isOn = true;
-    //private Particle particles;
-    //public Color startColor;
 
     public void toggle(bool b) {
         isOn = b;
     }
-    void Start () {
-		rend = GetComponentInChildren<Renderer>();
+    void Start() {
+        rend = GetComponentInChildren<Renderer>();
     }
 
     void Update() {
         rend.enabled = false;
-        if (isOn) {
+        if (isOn && PathTracer.nearestP <= 0.49) { // from start to middle
+            Debug.Log("start ->");
             rend.enabled = true;
-            rend.material.color = Color.Lerp(colorStart, colorEnd, PathTracer.nearestP);
+            rend.material.color = Color.Lerp(colorStart, colorMiddle, PathTracer.nearestPdelta * 100);
+            Debug.Log("-> middle");
         }
+        else if (isOn && PathTracer.nearestP >= 0.5) { // from middle to end
+            Debug.Log("middle ->");
+            rend.enabled = true;
+            rend.material.color = Color.Lerp(colorMiddle, colorEnd, PathTracer.nearestPdelta * 100);
+            Debug.Log("-> end");
+        }
+
     }
 }
