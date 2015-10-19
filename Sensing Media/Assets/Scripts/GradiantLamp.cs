@@ -5,10 +5,10 @@ using System.Collections.Generic;
 
 public class GradiantLamp : MonoBehaviour {
 
-    public Color colorStart;
-    public Color colorMiddle;
-	public Color colorMiddle2;
-    public Color colorEnd;
+    public Color colorStart, colorMiddle, colorMiddle2, colorEnd;
+
+    public static Text guiSlider;
+    public GameObject sliderObject;
     private Renderer rend;
     public bool isOn = true;
 	public float threshold2 = 1.8F;
@@ -26,12 +26,12 @@ public class GradiantLamp : MonoBehaviour {
     }
 	public void slider2(float t){
 		threshold2 = t;
-	}
+        guiSlider.text = "Threshold: " + t;
+    }
     void Start() {
         rend = GetComponentInChildren<Renderer>();
-        
         mouse = GameObject.Find("MouseGradient");
-
+        guiSlider = sliderObject.GetComponent<Text>();
     }
 
     void Update() {
