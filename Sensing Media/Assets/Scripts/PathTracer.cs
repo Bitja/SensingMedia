@@ -37,7 +37,7 @@ public class PathTracer : MonoBehaviour {
                 float y = uv.y * tex.height;
 
                 if (preX >= 0 && (preX != x || preY != y)) { 
-                    width = 30; // used for the light threshold variable
+					width = 30 ;
                     nearestP = width;
 
                     for (int i = -width / 2; i <= width / 2; i++)
@@ -56,8 +56,8 @@ public class PathTracer : MonoBehaviour {
                                 }
                             }
                         }
-  
-                    nearestP /= width /= 2;
+					  
+					nearestP /= width /= 2;
 
                     float length = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(preX - x), 2) + Mathf.Pow(Mathf.Abs(preY - y), 2));
                     Vector2 A, B;
@@ -66,8 +66,6 @@ public class PathTracer : MonoBehaviour {
                     B.x = x;
                     B.y = y;
                     float angle = Vector3.Angle(A, B);
-                    //Debug.Log(angle);
-
                 }
                 preX = x;
                 preY = y;

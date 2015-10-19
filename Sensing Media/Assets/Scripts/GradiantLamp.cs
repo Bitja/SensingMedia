@@ -11,9 +11,8 @@ public class GradiantLamp : MonoBehaviour {
     public Color colorEnd;
     private Renderer rend;
     public bool isOn = true;
+	public float threshold2 = 1.8F;
  
-
-	private int unitNumber; 
 	private float closestDistance = 200;
 	private float[] unitDistances = new float[17];//remember to change this to number of squares
 	float distance;
@@ -25,6 +24,9 @@ public class GradiantLamp : MonoBehaviour {
     public void toggle(bool b) {
         isOn = b;
     }
+	public void slider2(float t){
+		threshold2 = t;
+	}
     void Start() {
         rend = GetComponentInChildren<Renderer>();
         
@@ -46,15 +48,12 @@ public class GradiantLamp : MonoBehaviour {
 			for (int i = 0; i < unitDistances.Length; i++) {
 				if (unitDistances [i] < closestDistance) {
 					closestDistance = unitDistances[i];
-					unitNumber = i;//for debugging: delete when done
 				}
 			}
-			newLerb = closestDistance/1.8f;
-			Debug.Log (closestDistance + ":" + unitNumber+ ":" + newLerb);
+			newLerb = closestDistance/threshold2;
 			rend.enabled = true;
 			rend.material.color = Color.Lerp (colorMiddle2, colorEnd,newLerb);
 			closestDistance = 200;
-			//Debug.Log(">1"+rend.material.color);
 		}
 
 	}
