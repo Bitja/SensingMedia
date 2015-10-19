@@ -8,6 +8,8 @@ public class PathTracer : MonoBehaviour {
     public GameObject scoreObject, timeObject;
     public static bool isEnabled = false;
     public static Text guiScore, guiTime;
+    //public static Text guiSlider;
+
     private float preX = -1;
     private float preY = -1;
     private RaycastHit hit;
@@ -19,6 +21,7 @@ public class PathTracer : MonoBehaviour {
     void Start() {
         guiScore = scoreObject.GetComponent<Text>();
         guiTime = timeObject.GetComponent<Text>();
+        //guiSlider = timeObject.GetComponent<Text>();
     }
 
     void Update() {
