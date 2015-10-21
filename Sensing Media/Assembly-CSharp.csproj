@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\GradiantLamp.cs" />
      <Compile Include="Assets\Scripts\Handler.cs" />
      <Compile Include="Assets\Scripts\NewLevel.cs" />
+     <Compile Include="Assets\Scripts\OffsetPlane.cs" />
      <Compile Include="Assets\Scripts\PathTracer.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\ChangeScene.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\GetMousePosition.cs" />

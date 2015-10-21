@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class CrossFadePlane : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	public Image plane;
 	
+	
+	void Start(){
+		
+		plane.enabled = false;
+		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void PlaneFadeIn() {	
+		plane.enabled = true;
+		plane.CrossFadeAlpha(0.0f, 2.0f, true);
+
+	}
+	public void PlaneFadeOut() {	
+		plane.CrossFadeAlpha(0.0f, 0.0f, false);
+	plane.enabled = false;
 	}
 }
