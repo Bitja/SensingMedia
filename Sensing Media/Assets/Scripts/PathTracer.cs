@@ -70,7 +70,7 @@ public class PathTracer : MonoBehaviour {
                 }
                 preX = x;
                 preY = y;
-                tex.Apply();
+                //tex.Apply();
             }
         }
         else if (!Input.GetMouseButton(0) && preX >= 0) {
