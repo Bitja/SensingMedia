@@ -6,11 +6,8 @@ public class CrossFadePlane : MonoBehaviour {
 
 	public Image plane;
 	
-	
 	void Start(){
-		
 		plane.enabled = false;
-		
 	}
 	public void PlaneFadeIn() {	
 		plane.enabled = true;
@@ -19,6 +16,6 @@ public class CrossFadePlane : MonoBehaviour {
 	}
 	public void PlaneFadeOut() {	
 		plane.CrossFadeAlpha(0.0f, 0.0f, false);
-	plane.enabled = false;
+		plane.enabled = false;
 	}
 }
