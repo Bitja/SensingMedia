@@ -7,37 +7,35 @@ public class GradiantLamp : MonoBehaviour {
 
     public Color colorStart, colorMiddle, colorMiddle2, colorEnd;
 
-    public static Text guiSlider;
-    public GameObject sliderObject;
     private Renderer rend;
-    public bool isOn = true;
+    public bool isOn = false;
 	public float threshold2 = 1.8F;
  
 	private float closestDistance = 200;
-	private float[] unitDistances = new float[17];//remember to change this to number of squares
+	private float[] unitDistances = new float[30];//remember to change this to number of squares
 	float distance;
-    private GameObject mouse;
+    public GameObject mouse;
     private float newLerb;
 	public List<GameObject> distanceUnits= new List<GameObject>();
     
 
-    public void toggle(bool b) {
-        isOn = b;
+    public void toggleOn() {
+        isOn = true;
     }
-	public void slider2(float t){
-		threshold2 = t;
-        guiSlider.text = "Threshold: " + t;
-    }
+	public void toggleOff() {
+		isOn = false;
+	}
+
     void Start() {
         rend = GetComponentInChildren<Renderer>();
-        mouse = GameObject.Find("MouseGradient");
-        guiSlider = sliderObject.GetComponent<Text>();
+		//mouse = GameObject.Find("CylinderMouse");
     }
 
     void Update() {
 		rend.enabled = false;
 	
 		if (isOn && PathTracer.nearestP < 1) {
+			//Debug.Log ("hi");
 			rend.enabled = true;
 			rend.material.color = Color.Lerp (colorStart, colorMiddle, PathTracer.nearestP);
 		} 
@@ -50,6 +48,7 @@ public class GradiantLamp : MonoBehaviour {
 					closestDistance = unitDistances[i];
 				}
 			}
+			Debug.Log(closestDistance);
 			newLerb = closestDistance/threshold2;
 			rend.enabled = true;
 			rend.material.color = Color.Lerp (colorMiddle2, colorEnd,newLerb);

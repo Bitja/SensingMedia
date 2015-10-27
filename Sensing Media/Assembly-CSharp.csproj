@@ -59,8 +59,8 @@
      <Compile Include="Assets\Scripts\ScriptOLD\WhitePixelCount.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\button.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\getPosition.cs" />
+     <Compile Include="Assets\Scripts\ScriptOLD\lampGlow.cs" />
      <Compile Include="Assets\Scripts\TogglePlanes.cs" />
-     <Compile Include="Assets\Scripts\lampGlow.cs" />
      <Compile Include="Assets\Scripts\touchInput.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

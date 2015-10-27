@@ -14,6 +14,7 @@ public class PathTracer : MonoBehaviour {
     private RaycastHit hit;
     private List<Vector2> points;
     public static float nearestP;
+
     private int changeTex;
     public static int width;
 
@@ -57,7 +58,6 @@ public class PathTracer : MonoBehaviour {
                                 }
                             }
                         }
-					  
 					nearestP /= width /= 2;
 
                     float length = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(preX - x), 2) + Mathf.Pow(Mathf.Abs(preY - y), 2));

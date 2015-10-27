@@ -639,7 +639,6 @@ MonoBehaviour:
   colorMiddle: {r: .188543931, g: .963235319, b: .0424956605, a: 1}
   colorMiddle2: {r: .263408303, g: .438235283, b: .852941155, a: 1}
   colorEnd: {r: 0, g: 0, b: 0, a: 1}
-  sliderObject: {fileID: 1621857997}
   isOn: 0
   threshold2: 1.79999995
   distanceUnits:
@@ -4144,7 +4143,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1624374727}
+      - m_Target: {fileID: 1081956327}
         m_MethodName: toggle
         m_Mode: 0
         m_Arguments:
@@ -4307,7 +4306,6 @@ MonoBehaviour:
   colorMiddle: {r: .242647052, g: .242647052, b: .242647052, a: 1}
   colorMiddle2: {r: .235294104, g: .235294104, b: .235294104, a: 1}
   colorEnd: {r: .0882353187, g: .0882353187, b: .0882353187, a: 1}
-  sliderObject: {fileID: 1621857997}
   isOn: 0
   threshold2: 1.79999995
   distanceUnits:
@@ -7937,9 +7935,9 @@ GameObject:
   - 33: {fileID: 1081956325}
   - 23: {fileID: 1081956324}
   - 114: {fileID: 1081956323}
-  - 114: {fileID: 1624374727}
   - 65: {fileID: 1081956322}
   - 54: {fileID: 1081956321}
+  - 114: {fileID: 1081956327}
   m_Layer: 10
   m_Name: CylinderMouse
   m_TagString: Player
@@ -8036,6 +8034,23 @@ Transform:
   - {fileID: 1086759131}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &1081956327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1081956320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c71a6e9e05862c49aefa4cb22ee94ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorStart: {r: 1, g: 1, b: 1, a: 0}
+  colorMiddle: {r: .95588237, g: .00702855363, b: .00702855363, a: 0}
+  colorMiddle2: {r: .304116517, g: .110942915, b: .79411763, a: 0}
+  colorEnd: {r: .0901101828, g: 1, b: .0148140285, a: 0}
+  isOn: 1
+  margin: 1.79999995
 --- !u!1 &1086759130
 GameObject:
   m_ObjectHideFlags: 0
@@ -9763,23 +9778,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1621857997}
---- !u!114 &1624374727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11494052, guid: 9afb88a0f3c365545a336b593aec6960,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1081956320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d928b3905e4ca5b4785d4e665b64288f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorStart: {r: 0, g: 1, b: 1, a: 1}
-  colorMiddle: {r: 0, g: .89518261, b: 1, a: 1}
-  colorEnd: {r: .264705896, g: .264705896, b: .264705896, a: 1}
-  intencity: 0
-  isOn: 0
 --- !u!1 &1653921722
 GameObject:
   m_ObjectHideFlags: 0
