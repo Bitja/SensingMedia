@@ -48,7 +48,7 @@ public class GradiantLamp : MonoBehaviour {
 					closestDistance = unitDistances[i];
 				}
 			}
-			Debug.Log(closestDistance);
+			//Debug.Log(closestDistance);
 			newLerb = closestDistance/threshold2;
 			rend.enabled = true;
 			rend.material.color = Color.Lerp (colorMiddle2, colorEnd,newLerb);

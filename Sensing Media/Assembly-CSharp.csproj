@@ -47,15 +47,15 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CanvasToggle.cs" />
      <Compile Include="Assets\Scripts\Circle.cs" />
-     <Compile Include="Assets\Scripts\CrossFadePlane.cs" />
      <Compile Include="Assets\Scripts\GetMouseOfset.cs" />
      <Compile Include="Assets\Scripts\GradiantLamp.cs" />
      <Compile Include="Assets\Scripts\Handler.cs" />
      <Compile Include="Assets\Scripts\NewLevel.cs" />
-     <Compile Include="Assets\Scripts\OffsetPlane.cs" />
      <Compile Include="Assets\Scripts\PathTracer.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\ChangeScene.cs" />
+     <Compile Include="Assets\Scripts\ScriptOLD\CrossFadePlane.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\GetMousePosition.cs" />
+     <Compile Include="Assets\Scripts\ScriptOLD\OffsetPlane.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\WhitePixelCount.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\button.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\getPosition.cs" />
