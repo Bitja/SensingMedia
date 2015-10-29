@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\CanvasToggle.cs" />
      <Compile Include="Assets\Scripts\Circle.cs" />
      <Compile Include="Assets\Scripts\CrossFadePlane.cs" />
+     <Compile Include="Assets\Scripts\CylFollow.cs" />
      <Compile Include="Assets\Scripts\GetMouseOfset.cs" />
      <Compile Include="Assets\Scripts\GradiantLamp.cs" />
      <Compile Include="Assets\Scripts\Handler.cs" />
@@ -61,6 +62,7 @@
      <Compile Include="Assets\Scripts\ScriptOLD\getPosition.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\lampGlow.cs" />
      <Compile Include="Assets\Scripts\TogglePlanes.cs" />
+     <Compile Include="Assets\Scripts\mouseTut.cs" />
      <Compile Include="Assets\Scripts\touchInput.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

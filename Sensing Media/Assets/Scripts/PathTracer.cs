@@ -121,7 +121,7 @@ public class PathTracer : MonoBehaviour {
 
     public static int countPixels(Color target_color) { // slow function creates a delay! Easy solution DONE: calls function when mouse moves out of each inner circle (see Handler.cs). 
         int matches = 0;
-        for (int y = 0; y < NewLevel.clone.height; y++){ 
+        for (int y = 0; y < NewLevel.clone.height; y++) { 
             for (int x = 0; x < NewLevel.clone.width; x++){
                 if (NewLevel.clone.GetPixel(x, y) == target_color) matches++;
             }

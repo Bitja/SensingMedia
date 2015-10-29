@@ -12,13 +12,13 @@ public class NewLevel : MonoBehaviour {
     }
 
     public void ChangeToScene(int sceneToChangeTo){
-        PathTracer.guiTime.enabled = false;
-        PathTracer.guiScore.enabled = false;
-        CurrentTex = myTextures[sceneToChangeTo];
+        CurrentTex = myTextures[sceneToChangeTo]; 
         rend.material.mainTexture = CurrentTex; 
         clone = Instantiate(CurrentTex);
         GetComponent<Renderer>().material.mainTexture = clone;
         PathTracer.toggle(false);
         Handler.reset();
+        PathTracer.guiTime.enabled = false; 
+        PathTracer.guiScore.enabled = false; 
     }
 }
