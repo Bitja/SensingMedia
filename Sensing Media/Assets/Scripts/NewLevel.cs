@@ -41,9 +41,16 @@ public class NewLevel : MonoBehaviour {
 		PathTracer.path3.SetActive (false);
 		PathTracer.path4.SetActive (false);
 
+		imageFadePlane1.enabled = false;
+		imageFadePlane2.enabled = false;
+		imageFadePlane3.enabled = false;
+		imageFadePlane4.enabled = false;
+
 		if (sceneToChangeTo == 0) {
+			Debug.Log ("changing scene");
 			imageFadePlane1.enabled = true;
 			imageFadePlane1.CrossFadeAlpha (0.0f, 2.0f, true);
+			Debug.Log ("Fading");
 		}
 		else if (sceneToChangeTo == 1) {
 			imageFadePlane2.enabled = true;

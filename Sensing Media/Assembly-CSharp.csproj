@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\GetMouseOfset.cs" />
      <Compile Include="Assets\Scripts\GradiantLamp.cs" />
      <Compile Include="Assets\Scripts\Handler.cs" />
+     <Compile Include="Assets\Scripts\MenuToggle.cs" />
      <Compile Include="Assets\Scripts\NewLevel.cs" />
      <Compile Include="Assets\Scripts\PathTracer.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\ChangeScene.cs" />

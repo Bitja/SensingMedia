@@ -28,6 +28,7 @@ public class PathTracer : MonoBehaviour {
         guiTime = timeObject.GetComponent<Text>();
 		guiScoreBox = scoreBox.GetComponent<Image>();
 
+	
 		path2 = GameObject.Find ("path2");
 		path3 = GameObject.Find ("path3");
 		path4 = GameObject.Find ("path4");
@@ -94,6 +95,11 @@ public class PathTracer : MonoBehaviour {
         }
         
     }
+
+	public void setCurrentLevel(int level){
+		currentLevel = level;
+		//Debug.Log (currentLevel);
+	}
 
     public static void displayScore() {
         guiTime.enabled = true;
