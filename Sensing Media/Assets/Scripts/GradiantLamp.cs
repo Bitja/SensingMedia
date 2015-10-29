@@ -9,6 +9,7 @@ public class GradiantLamp : MonoBehaviour {
 
     private Renderer rend;
     public bool isOn = false;
+
 	public float threshold2 = 1.8F;
  
 	private float closestDistance = 200;
@@ -26,6 +27,8 @@ public class GradiantLamp : MonoBehaviour {
 		isOn = false;
 	}
 
+
+
     void Start() {
         rend = GetComponentInChildren<Renderer>();
 		//mouse = GameObject.Find("CylinderMouse");
@@ -33,7 +36,8 @@ public class GradiantLamp : MonoBehaviour {
 
     void Update() {
 		rend.enabled = false;
-	
+
+
 		if (isOn && PathTracer.nearestP < 1) {
 			//Debug.Log ("hi");
 			rend.enabled = true;

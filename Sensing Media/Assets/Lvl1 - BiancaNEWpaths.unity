@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  offset: {x: 0, y: 0, z: 0}
+  offsetOn: 0
 --- !u!96 &32259078
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -1372,7 +1372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &234508877
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1389,7 +1389,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -124.654602, y: -125.300003}
+  m_AnchoredPosition: {x: -152, y: -440}
   m_SizeDelta: {x: 123.699997, y: 40}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &234508878
@@ -1434,8 +1434,41 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: toggle
+      - m_Target: {fileID: 517029868}
+        m_MethodName: toggleOffset
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 840405476}
+        m_MethodName: toggleOffset
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1771499881}
+        m_MethodName: toggleOffset
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1736047735}
+        m_MethodName: toggleOffset
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5153,6 +5186,7 @@ GameObject:
   - 65: {fileID: 517029867}
   - 54: {fileID: 517029866}
   - 114: {fileID: 517029865}
+  - 114: {fileID: 517029872}
   m_Layer: 10
   m_Name: CylinderMouse
   m_TagString: Player
@@ -5251,7 +5285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  offset: {x: 0, y: 0, z: 0}
+  offsetOn: 0
 --- !u!23 &517029869
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5298,6 +5332,19 @@ Transform:
   - {fileID: 1691905441}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &517029872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 517029864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651a293abe974624b869c8bba8f3512a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  offsetOn: 0
 --- !u!1 &517302488
 GameObject:
   m_ObjectHideFlags: 0
@@ -9310,6 +9357,8 @@ GameObject:
   - 65: {fileID: 840405475}
   - 54: {fileID: 840405474}
   - 114: {fileID: 840405473}
+  - 114: {fileID: 840405481}
+  - 114: {fileID: 840405480}
   m_Layer: 10
   m_Name: CylinderMouse2
   m_TagString: Player
@@ -9408,7 +9457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  offset: {x: 0, y: 0, z: 0}
+  offsetOn: 0
 --- !u!23 &840405477
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9455,6 +9504,32 @@ Transform:
   - {fileID: 891643549}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &840405480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 840405472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651a293abe974624b869c8bba8f3512a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  offsetOn: 0
+--- !u!114 &840405481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 840405472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651a293abe974624b869c8bba8f3512a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  offsetOn: 0
 --- !u!1 &873742445 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 109934, guid: 5782d154d5fa3ce449be512aed6b1adc, type: 2}
@@ -9506,7 +9581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  offset: {x: 0, y: 150, z: 0}
+  offsetOn: 0
 --- !u!23 &879611016
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9597,7 +9672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  offset: {x: 0, y: 0, z: 0}
+  offsetOn: 0
 --- !u!96 &891643551
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -14603,7 +14678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  offset: {x: 0, y: 0, z: 0}
+  offsetOn: 0
 --- !u!96 &1691905443
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -14750,7 +14825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  offset: {x: 0, y: 0, z: 0}
+  offsetOn: 0
 --- !u!96 &1708124040
 TrailRenderer:
   m_ObjectHideFlags: 0
@@ -16176,6 +16251,7 @@ GameObject:
   - 65: {fileID: 1736047734}
   - 54: {fileID: 1736047733}
   - 114: {fileID: 1736047732}
+  - 114: {fileID: 1736047739}
   m_Layer: 10
   m_Name: CylinderMouse4
   m_TagString: Player
@@ -16274,7 +16350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  offset: {x: 0, y: 0, z: 0}
+  offsetOn: 0
 --- !u!23 &1736047736
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16321,6 +16397,19 @@ Transform:
   - {fileID: 1708124038}
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &1736047739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1736047731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651a293abe974624b869c8bba8f3512a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  offsetOn: 0
 --- !u!4 &1749764651 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400996, guid: 5782d154d5fa3ce449be512aed6b1adc, type: 2}
@@ -16789,7 +16878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  offset: {x: 0, y: 0, z: 0}
+  offsetOn: 0
 --- !u!23 &1771499882
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17041,7 +17130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1828786171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17058,7 +17147,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -124.654602, y: -183.548538}
+  m_AnchoredPosition: {x: -151, y: -392}
   m_SizeDelta: {x: 123.699997, y: 40}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1828786172
