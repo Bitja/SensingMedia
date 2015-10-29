@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
 public class NewLevel : MonoBehaviour {
@@ -7,32 +6,15 @@ public class NewLevel : MonoBehaviour {
     public static Texture2D CurrentTex;
     private static Renderer rend;
     public static Texture2D clone;
-
-	public static GameObject fadePlane1, fadePlane2, fadePlane3, fadePlane4;
-	public static Image imageFadePlane1, imageFadePlane2, imageFadePlane3, imageFadePlane4;
  
     void Start (){
 		rend = GetComponent<Renderer>();
-		fadePlane1 = GameObject.Find ("ImagePlaneFade1");
-		fadePlane2 = GameObject.Find ("ImagePlaneFade2");
-		fadePlane3 = GameObject.Find ("ImagePlaneFade3");
-		fadePlane4 = GameObject.Find ("ImagePlaneFade4");
-
-		
-		imageFadePlane1 = fadePlane1.GetComponent<Image>();
-		imageFadePlane2 = fadePlane2.GetComponent<Image>();
-		imageFadePlane3 = fadePlane3.GetComponent<Image>();
-		imageFadePlane4 = fadePlane4.GetComponent<Image>();
-		imageFadePlane1.enabled = false;
-		imageFadePlane2.enabled = false;
-		imageFadePlane3.enabled = false;
-		imageFadePlane4.enabled = false;
-
-
-		//myFadeTextures.enabled = false;
     }
 
     public void ChangeToScene(int sceneToChangeTo){
+<<<<<<< HEAD
+        CurrentTex = myTextures[sceneToChangeTo]; 
+=======
         PathTracer.guiTime.enabled = false;
         PathTracer.guiScore.enabled = false;
 		PathTracer.guiScoreBox.enabled = false;
@@ -66,12 +48,18 @@ public class NewLevel : MonoBehaviour {
 		}
 
 		CurrentTex = myTextures[sceneToChangeTo];
+>>>>>>> Mette_Line
         rend.material.mainTexture = CurrentTex; 
         clone = Instantiate(CurrentTex);
         GetComponent<Renderer>().material.mainTexture = clone;
         PathTracer.toggle(false);
         Handler.reset();
+<<<<<<< HEAD
+        PathTracer.guiTime.enabled = false; 
+        PathTracer.guiScore.enabled = false; 
+=======
 	//	myFadeTextures[sceneToChangeTo].enabled = true;
 	//	myFadeTextures[sceneToChangeTo].CrossFadeAlpha(0.0f, 2.0f, true);
+>>>>>>> Mette_Line
     }
 }

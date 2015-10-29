@@ -47,6 +47,10 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CanvasToggle.cs" />
      <Compile Include="Assets\Scripts\Circle.cs" />
+<<<<<<< HEAD
+     <Compile Include="Assets\Scripts\CylFollow.cs" />
+=======
+>>>>>>> Mette_Line
      <Compile Include="Assets\Scripts\GetMouseOfset.cs" />
      <Compile Include="Assets\Scripts\GradiantLamp.cs" />
      <Compile Include="Assets\Scripts\Handler.cs" />
