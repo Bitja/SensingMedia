@@ -22,12 +22,9 @@ public class Handler : MonoBehaviour {
 
     public static void prepare() {
         if (state == 0) {
-            Debug.Log("ok4");
             PathTracer.toggle(true);
-            Debug.Log("ok5");
-            state++;
-            Debug.Log("ok6"); //dead
             countStart = PathTracer.countPixels(Color.white); // moved her because: slow in start() in creates a delay! 
+            state++;
             Debug.Log("Preparing for Start");
         }
     }

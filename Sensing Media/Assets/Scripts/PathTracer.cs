@@ -9,6 +9,7 @@ public class PathTracer : MonoBehaviour {
     public static bool isEnabled = false;
     public static Text guiScore, guiTime;
 
+    //private static Texture2D tex; //Bianca added
     private float preX = -1;
     private float preY = -1;
     private RaycastHit hit;
@@ -85,6 +86,7 @@ public class PathTracer : MonoBehaviour {
         guiScore.text = "Score: " + Handler.getAccuracy() + "%";
         guiTime.text = "Time: " + Handler.timeDisplay + " seconds";
         toggle(false);
+        //tex.Apply(); // Bianca added
     }  
 
     //arrayToCurve is original Vector3 array, smoothness is the number of interpolations. 

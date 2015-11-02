@@ -35,7 +35,6 @@ public class GradiantLamp : MonoBehaviour {
 		rend.enabled = false;
 	
 		if (isOn && PathTracer.nearestP < 1) {
-			//Debug.Log ("hi");
 			rend.enabled = true;
 			rend.material.color = Color.Lerp (colorStart, colorMiddle, PathTracer.nearestP);
 		} 

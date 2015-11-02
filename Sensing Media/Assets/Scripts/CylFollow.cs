@@ -74,10 +74,8 @@ public class CylFollow : MonoBehaviour {
         dialog.enabled = false;
         diaPanel.SetActive(false);
         pathButtonObj.SetActive(false);
-        //planeRune.SetActive(true);
         circles.SetActive(true);
         GameObject.Find("CylinderMouseTut").transform.position += new Vector3(0.0f, 50.0f, 0.0f); //moves mouse away from screen view
         imgBack.CrossFadeAlpha(0.0f, 2.0f, true);
-        Debug.Log(1);
     }
 }

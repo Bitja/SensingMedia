@@ -29,17 +29,24 @@ public class mouseTut : MonoBehaviour {
     }
 
     void Update() {
-        
-        if (CylFollow.tutorialState == 3 || CylFollow.tutorialState == 4) {
+        if (CylFollowAni.tutorialState <= 2) {
+            rend.material.color = colorStart;
+        }
+        if (CylFollowAni.tutorialState == 4 || CylFollowAni.tutorialState == 5) {
             unitDistance = Vector3.Distance(mouse.transform.position, distanceUnit.transform.position);
-            if (unitDistance < 7) {
-                lerb1 = unitDistance / 8.0f;
+            //Debug.Log(unitDistance);
+            if (unitDistance < 5.6) {
+                rend.material.color = colorStart;
+            }
+            else if (unitDistance < 7) {
+                lerb1 = unitDistance / 9.0f;
                 rend.material.color = Color.Lerp(colorStart, colorEnd, lerb1);
             }
             else if (unitDistance >= 7)
                 rend.material.color = colorEnd;
+          
         }
-        else if (CylFollow.tutorialState >=5) {
+        else if (CylFollowAni.tutorialState >=6) {
             rend.enabled = false;
 
             if (PathTracer.nearestP < 1) {
@@ -49,7 +56,6 @@ public class mouseTut : MonoBehaviour {
             else if (PathTracer.nearestP >= 1) {
                 for (int i = 0; i < distanceUnits.Count; i++) {
                     unitDistances[i] = Vector3.Distance(mouse.transform.position, distanceUnits[i].transform.position);
-
                 }
                 for (int i = 0; i < unitDistances.Length; i++) {
                     if (unitDistances[i] < closestDistance) {
