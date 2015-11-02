@@ -5,23 +5,39 @@ using UnityEngine.UI;
 
 public class PathTracer : MonoBehaviour {
 
-    public GameObject scoreObject, timeObject;
+	public GameObject scoreObject, timeObject,scoreBox;//testing
     public static bool isEnabled = false;
     public static Text guiScore, guiTime;
+	public static Image guiScoreBox; 
+	public static GameObject path2, path3, path4;
 
-    //private static Texture2D tex; //Bianca added
     private float preX = -1;
     private float preY = -1;
     private RaycastHit hit;
     private List<Vector2> points;
     public static float nearestP;
+	private static int currentLevel = 1;
 
     private int changeTex;
     public static int width;
+	
 
-    void Start() {
+	
+	void Start() {
         guiScore = scoreObject.GetComponent<Text>();
         guiTime = timeObject.GetComponent<Text>();
+		guiScoreBox = scoreBox.GetComponent<Image>();
+
+	
+		path2 = GameObject.Find ("path2");
+		path3 = GameObject.Find ("path3");
+		path4 = GameObject.Find ("path4");
+
+		guiScoreBox.enabled = false;
+
+		path2.SetActive(false);
+		path3.SetActive(false);
+		path4.SetActive(false);
     }
 
     void Update() {
@@ -80,13 +96,32 @@ public class PathTracer : MonoBehaviour {
         
     }
 
+	public void setCurrentLevel(int level){
+		currentLevel = level;
+		//Debug.Log (currentLevel);
+	}
+
     public static void displayScore() {
         guiTime.enabled = true;
         guiScore.enabled = true;
+		guiScoreBox.enabled = true;
+		Debug.Log ("Level : " + currentLevel);
+		if (currentLevel == 1)
+			path2.SetActive (true);
+		else if(currentLevel == 2)
+			path3.SetActive(true);
+		else if(currentLevel == 3)
+			path4.SetActive(true);
+
+		
+		//path2.SetActive(true);
+		//path3.SetActive(true);
+		//path4.SetActive(true);
+
         guiScore.text = "Score: " + Handler.getAccuracy() + "%";
         guiTime.text = "Time: " + Handler.timeDisplay + " seconds";
         toggle(false);
-        //tex.Apply(); // Bianca added
+		currentLevel ++;
     }  
 
     //arrayToCurve is original Vector3 array, smoothness is the number of interpolations. 
@@ -123,7 +158,7 @@ public class PathTracer : MonoBehaviour {
 
     public static int countPixels(Color target_color) { // slow function creates a delay! Easy solution DONE: calls function when mouse moves out of each inner circle (see Handler.cs). 
         int matches = 0;
-        for (int y = 0; y < NewLevel.clone.height; y++) { 
+        for (int y = 0; y < NewLevel.clone.height; y++){ 
             for (int x = 0; x < NewLevel.clone.width; x++){
                 if (NewLevel.clone.GetPixel(x, y) == target_color) matches++;
             }
