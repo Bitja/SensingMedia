@@ -1,9 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GradiantLamp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\NewLevel.cs">
     <Files>
-      <File FileName="Assets\Scripts\GradiantLamp.cs" Line="92" Column="5" />
-      <File FileName="Assets\Scripts\MirrorLamps.cs" Line="37" Column="84" />
+      <File FileName="Assets\Scripts\Circle.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PathTracer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CanvasToggle.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Handler.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GradiantLamp.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ToggleTutorial.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NewLevel.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

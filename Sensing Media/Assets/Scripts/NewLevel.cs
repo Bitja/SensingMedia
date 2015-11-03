@@ -23,50 +23,66 @@ public class NewLevel : MonoBehaviour {
 		imageFadePlane2 = fadePlane2.GetComponent<Image>();
 		imageFadePlane3 = fadePlane3.GetComponent<Image>();
 		imageFadePlane4 = fadePlane4.GetComponent<Image>();
+
+
 		imageFadePlane1.enabled = false;
 		imageFadePlane2.enabled = false;
 		imageFadePlane3.enabled = false;
 		imageFadePlane4.enabled = false;
 
-
 		//myFadeTextures.enabled = false;
     }
+	
+	
+	public void ChangeToTutorialScene(int sceneToChangeTo){
+		CurrentTex = myTextures[sceneToChangeTo]; 
+		rend.material.mainTexture = CurrentTex; 
+		clone = Instantiate(CurrentTex);
+		GetComponent<Renderer>().material.mainTexture = clone;
+		PathTracer.toggle(false);
+		Handler.reset();
+		PathTracer.guiTime.enabled = false; 
+		PathTracer.guiScore.enabled = false; 
+	}
 
     public void ChangeToScene(int sceneToChangeTo){
+
         PathTracer.guiTime.enabled = false;
         PathTracer.guiScore.enabled = false;
 		PathTracer.guiScoreBox.enabled = false;
 
+		PathTracer.path1.SetActive (false);
 		PathTracer.path2.SetActive (false);
 		PathTracer.path3.SetActive (false);
 		PathTracer.path4.SetActive (false);
+		PathTracer.path5.SetActive (false);
 
 		imageFadePlane1.enabled = false;
 		imageFadePlane2.enabled = false;
 		imageFadePlane3.enabled = false;
 		imageFadePlane4.enabled = false;
-
-		if (sceneToChangeTo == 0) {
-			Debug.Log ("changing scene");
+	
+		if (sceneToChangeTo == 1) {
 			imageFadePlane1.enabled = true;
 			imageFadePlane1.CrossFadeAlpha (0.0f, 2.0f, true);
-			Debug.Log ("Fading");
 		}
-		else if (sceneToChangeTo == 1) {
+		else if (sceneToChangeTo == 2) {
 			imageFadePlane2.enabled = true;
 			imageFadePlane2.CrossFadeAlpha (0.0f, 2.0f, true);
 		} 
-		else if (sceneToChangeTo == 2) {
+		else if (sceneToChangeTo == 3) {
 			imageFadePlane3.enabled = true;
 			imageFadePlane3.CrossFadeAlpha (0.0f, 2.0f, true);
 		} 
-		else if (sceneToChangeTo == 3) {
+		else if (sceneToChangeTo == 4) {
 			imageFadePlane4.enabled = true;
 			imageFadePlane4.CrossFadeAlpha (0.0f, 2.0f, true);
 		}
-
+		Debug.Log("Preparing...");
 		CurrentTex = myTextures[sceneToChangeTo];
+	
         rend.material.mainTexture = CurrentTex; 
+
         clone = Instantiate(CurrentTex);
         GetComponent<Renderer>().material.mainTexture = clone;
         PathTracer.toggle(false);

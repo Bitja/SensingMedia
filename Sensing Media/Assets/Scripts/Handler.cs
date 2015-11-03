@@ -21,6 +21,7 @@ public class Handler : MonoBehaviour {
     }
 
     public static void prepare() {
+
         if (state == 0) {
             PathTracer.toggle(true);
             countStart = PathTracer.countPixels(Color.white); // moved her because: slow in start() in creates a delay! 
@@ -73,4 +74,5 @@ public class Handler : MonoBehaviour {
     public static float getAccuracy() {
         return dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart;
     }
+
 }
