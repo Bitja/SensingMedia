@@ -55,7 +55,6 @@ public class CylFollowAni : MonoBehaviour {
     public void playAnimation() {
         dialog.text = "Imitate the animation with the tangible widget. \n Firstly, place it on the touch screen.";
         widget1.SetActive(true);
-        GameObject.Find("Start-menu").SetActive(false);
         runeBack.SetActive(true);
         panel.SetActive(true);
     }
