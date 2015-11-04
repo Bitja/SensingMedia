@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\ScriptOLD\button.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\getPosition.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\lampGlow.cs" />
+     <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\TogglePlanes.cs" />
      <Compile Include="Assets\Scripts\ToggleTutorial.cs" />
      <Compile Include="Assets\Scripts\mouseTut.cs" />
