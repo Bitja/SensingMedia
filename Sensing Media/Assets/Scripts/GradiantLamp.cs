@@ -9,8 +9,9 @@ public class GradiantLamp : MonoBehaviour {
 
     private Renderer rend;
     public bool isOn = false;
-	public bool skammekrog = false;
-		public float moveSpeed = 1.0f;
+	public static bool skammekrog;
+	public static bool lampIsOn = false;
+	public float moveSpeed = 1.0f;
 
 	private float distanceToFarthestPoint = 0.15F;//increase this to make the lerp between yellow and red larger
  
@@ -25,26 +26,37 @@ public class GradiantLamp : MonoBehaviour {
 
     public void toggleOn() {
         isOn = true;
+		Debug.Log (isOn);
+
     }
 	public void toggleOff() {
 		isOn = false;
+		Debug.Log (isOn);
 	}
 	public void changeToAlpha(){
-
-		if (skammekrog == false) {
+		if (skammekrog == false&&lampIsOn==false) {
 			skammekrog = true;
-			
 		} 
-		else {
-			skammekrog = false;
+		else if(skammekrog == true&&lampIsOn==false){
+			skammekrog = false;			
 		}
+	}
+
+	public void lampOn(){	
+		if (lampIsOn == false) {
+			lampIsOn = true;
+		} 
+		else if(lampIsOn == true){
+			lampIsOn = false;			
+		}
+		Debug.Log (lampIsOn);
 	}
 
 
 
     void Start() {
       	rend = GetComponentInChildren<Renderer>();
-
+		//skammekrog = false;
 
 		//mouse = GameObject.Find("CylinderMouse");
     }
@@ -55,6 +67,7 @@ public class GradiantLamp : MonoBehaviour {
 
 		if (skammekrog == false) {
 			if (isOn && PathTracer.nearestP < 1) {
+
 				//Debug.Log ("nearest.P = "+PathTracer.nearestP);
 				rend.enabled = true;
 				rend.material.color = Color.Lerp (colorStart, colorMiddle, PathTracer.nearestP);
@@ -78,7 +91,6 @@ public class GradiantLamp : MonoBehaviour {
 			}
 		} 
 		else if (skammekrog == true) {
-
 			alphaColor.a = 0.0f;//set alpha to 0
 			if (isOn && PathTracer.nearestP >= 1) {
 				for (int i = 0; i < distanceUnits.Count; i++) {

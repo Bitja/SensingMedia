@@ -7,9 +7,10 @@ public class CylFollowAni : MonoBehaviour {
     private Vector3 moveR;
     private GameObject mTut, mStart;
 
-    public GameObject objDialog, planeRune, pathButtonObj, transImage, circles, widget1, widget2, widget3, panel, runeBack, cylFollowAni;
+	public GameObject objDialog, objDialog2, planeRune, pathButtonObj, transImage, circles, widget1, widget2, widget3, panel, runeBack, cylFollowAni;
     private Text dialog;
-    public Image imgBack;
+	private Text dialog2;
+	public Image imgBack;
     public static int tutorialState = 0;
 
     void Start() {
@@ -17,7 +18,8 @@ public class CylFollowAni : MonoBehaviour {
         mTut = GameObject.Find("CylinderFollow");
         moveR = new Vector3(5.0f, 0.0f, 0.0f);
         dialog = objDialog.GetComponent<Text>();
-        pathButtonObj.SetActive(false);
+		dialog2 = objDialog2.GetComponent<Text>();
+		pathButtonObj.SetActive(false);
         transImage.SetActive(false);
         circles.SetActive(false);
         widget1.SetActive(false);
@@ -62,7 +64,8 @@ public class CylFollowAni : MonoBehaviour {
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.name == "CylinderMouseTut") {
             if (tutorialState == 0) {
-                mTut.transform.position += moveR;
+				GradiantLamp.skammekrog = false;
+				mTut.transform.position += moveR;
                 cylFollowAni.SetActive(true);
                 widget1.SetActive(false);
                 tutorialState++;
@@ -74,6 +77,7 @@ public class CylFollowAni : MonoBehaviour {
                 tutorialState++;
             }
             if (tutorialState == 4) {
+				GradiantLamp.skammekrog = true;
                 dialog.text = "";
                 mStart.SetActive(false);
                 widget3.SetActive(false);
@@ -96,12 +100,13 @@ public class CylFollowAni : MonoBehaviour {
                 mStart.SetActive(true);
                 mStart.transform.position += moveR;
                 tutorialState++;
+
             }
         }
     }
 
     public void pathState() {
-        dialog.text = "Drag the widget along the line from the left circle to the right. \n Notice how the ligth changes, when you leave the path.";
+        dialog2.text = "Drag the widget along the line from the left circle to the right. \n Notice how the ligth changes, when you leave the path.";
         imgBack.enabled = true;
         transImage.SetActive(true);
         panel.SetActive(false);

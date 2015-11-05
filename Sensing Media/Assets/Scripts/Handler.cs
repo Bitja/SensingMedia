@@ -25,8 +25,10 @@ public class Handler : MonoBehaviour {
         if (state == 0) {
             PathTracer.toggle(true);
             countStart = PathTracer.countPixels(Color.white); // moved her because: slow in start() in creates a delay! 
-            state++;
-            Debug.Log("Preparing for Start");
+            state++;		
+			Debug.Log("Preparing for Start");
+			if(GradiantLamp.lampIsOn==false)
+				GradiantLamp.skammekrog = false;
         }
     }
 
@@ -34,7 +36,7 @@ public class Handler : MonoBehaviour {
         if (state == 1) {
             state++;
             timestampBeg = getMillis();
-            
+			Timer.timerFrozen = false;
             Debug.Log("Starting");
         }
     }
@@ -50,13 +52,16 @@ public class Handler : MonoBehaviour {
             dataList[stage].millis = timestampEnd - timestampBeg;
             dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart ;
             dataList[stage].count = countEnd;
-            
+
             Debug.Log("Ending");
             Debug.Log("Time: " + (dataList[stage].millis / 1000.0f));
             Debug.Log("Accuracy: " + dataList[stage].accuracy);
             timeDisplay = dataList[stage].millis / 1000.0f;
             PathTracer.displayScore();
-        }
+			Timer.timerFrozen = true;
+			if(GradiantLamp.lampIsOn==false)
+				GradiantLamp.skammekrog = true;
+			       }
     }
 
     public static void reset() {
