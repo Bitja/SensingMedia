@@ -9,7 +9,8 @@ public class PathTracer : MonoBehaviour {
     public static bool isEnabled = false;
     public static Text guiScore, guiTime;
 	public static Image guiScoreBox; 
-	public static GameObject path1, path2, path3, path4, path5;
+	public static GameObject path1, path2, path3, path4, path5;	
+	public static GameObject catObj1, catObj2, catObj3, catObj4, catObj5;
 
     private float preX = -1;
     private float preY = -1;
@@ -27,13 +28,19 @@ public class PathTracer : MonoBehaviour {
         guiScore = scoreObject.GetComponent<Text>();
         guiTime = timeObject.GetComponent<Text>();
 		guiScoreBox = scoreBox.GetComponent<Image>();
-
 		
 		path1 = GameObject.Find ("path1");
 		path2 = GameObject.Find ("path2");
 		path3 = GameObject.Find ("path3");
 		path4 = GameObject.Find ("path4");
 		path5 = GameObject.Find ("path5");
+
+		
+		catObj1 = GameObject.Find ("cat1");
+		catObj2 = GameObject.Find ("cat2");
+		catObj3 = GameObject.Find ("cat3");
+		catObj4 = GameObject.Find ("cat4");
+		catObj5 = GameObject.Find ("cat5");
 
 		guiScoreBox.enabled = false;
 
@@ -42,6 +49,13 @@ public class PathTracer : MonoBehaviour {
 		path3.SetActive(false);
 		path4.SetActive(false);
 		path5.SetActive(false);
+
+
+		catObj1.SetActive(false);
+		catObj2.SetActive(false);
+		catObj3.SetActive(false);
+		catObj4.SetActive(false);
+		catObj5.SetActive(false);
 
     }
 
@@ -124,10 +138,23 @@ public class PathTracer : MonoBehaviour {
 			path5.SetActive(true);
 
 
-		
-		//path2.SetActive(true);
-		//path3.SetActive(true);
-		//path4.SetActive(true);
+		//Dispay cat heads
+		if (Handler.getAccuracy () >= 0) {
+			catObj1.SetActive (true);
+			if (Handler.getAccuracy () >= 20) {
+				catObj2.SetActive (true);
+				if (Handler.getAccuracy () >= 40) {
+					catObj3.SetActive (true);
+					if (Handler.getAccuracy () >= 60) {
+						catObj4.SetActive (true);
+						if (Handler.getAccuracy () >= 80) {
+							catObj5.SetActive (true);
+						}
+					}
+				}
+			}
+		}
+
 		Debug.Log ("score");
         guiScore.text = "Score: " + Handler.getAccuracy() + "%";
         guiTime.text = "Time: " + Handler.timeDisplay + " seconds";

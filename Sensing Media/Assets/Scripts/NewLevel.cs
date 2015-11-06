@@ -59,6 +59,12 @@ public class NewLevel : MonoBehaviour {
 		PathTracer.path4.SetActive (false);
 		PathTracer.path5.SetActive (false);
 
+		PathTracer.catObj1.SetActive (false);
+		PathTracer.catObj2.SetActive (false);
+		PathTracer.catObj3.SetActive (false);
+		PathTracer.catObj4.SetActive (false);
+		PathTracer.catObj5.SetActive (false);
+
 		imageFadePlane1.enabled = false;
 		imageFadePlane2.enabled = false;
 		imageFadePlane3.enabled = false;
