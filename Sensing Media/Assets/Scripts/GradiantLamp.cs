@@ -26,12 +26,10 @@ public class GradiantLamp : MonoBehaviour {
 
     public void toggleOn() {
         isOn = true;
-		Debug.Log (isOn);
 
     }
 	public void toggleOff() {
 		isOn = false;
-		Debug.Log (isOn);
 	}
 	public void changeToAlpha(){
 		if (skammekrog == false&&lampIsOn==false) {
@@ -49,7 +47,6 @@ public class GradiantLamp : MonoBehaviour {
 		else if(lampIsOn == true){
 			lampIsOn = false;			
 		}
-		Debug.Log (lampIsOn);
 	}
 
 

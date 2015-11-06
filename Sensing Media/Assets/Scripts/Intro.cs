@@ -3,11 +3,13 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class Intro : MonoBehaviour {
-	public Texture2D[] storyTextures = new Texture2D[1];
+	//Storyboards
+	public Texture2D[] storyTextures = new Texture2D[3];
 	private int currentStory = -1;
-	private int totalStory = 1;
+	private int totalStory = 2;//REMEMBER TO CHANGE THIS TO FIT # OF IMAGES
 	public static Texture2D CurrentTex;
 	private static Renderer rend;
+
 
 
 	void Start (){
@@ -28,7 +30,5 @@ public class Intro : MonoBehaviour {
 			GameObject.Find("StartTutorial").SetActive(true);
 		}
 	}
-	public void lastStoryboard(){
-
-	}
+	
 }

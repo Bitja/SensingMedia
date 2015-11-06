@@ -4,6 +4,7 @@ using System;
 
 public class Handler : MonoBehaviour {
 
+
     private static int stage = 0;
     private static int state = 0;
     private static long timestampBeg = 0;
@@ -58,6 +59,7 @@ public class Handler : MonoBehaviour {
             Debug.Log("Accuracy: " + dataList[stage].accuracy);
             timeDisplay = dataList[stage].millis / 1000.0f;
             PathTracer.displayScore();
+			Infotoggle.showInfoButton();
 			Timer.timerFrozen = true;
 			if(GradiantLamp.lampIsOn==false)
 				GradiantLamp.skammekrog = true;
@@ -79,5 +81,6 @@ public class Handler : MonoBehaviour {
     public static float getAccuracy() {
         return dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart;
     }
+
 
 }

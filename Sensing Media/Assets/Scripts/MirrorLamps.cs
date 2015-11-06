@@ -4,21 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class MirrorLamps : MonoBehaviour {
+	public GameObject lamp;
 	public Color colorStart, colorMiddle, colorMiddle2, colorEnd;
 	private Renderer rend;
 	public bool isOn = false;
 
-	public void toggleOffset(){
-		if (isOn == false) {
-			isOn = true;
-			
-		} 
-		else
-			isOn = false;
-	}
 
 	void Start () {
 		rend = GetComponentInChildren<Renderer>();
+		lamp = GameObject.Find ("CylinderLamp");
 	}
 	
 	// Update is called once per frame
@@ -36,6 +30,18 @@ public class MirrorLamps : MonoBehaviour {
 			//Debug.Log (GradiantLamp.newLerb);
 			rend.material.color = Color.Lerp (colorMiddle2, colorEnd,GradiantLamp.mirrorLerb);
 
+		}
 	}
-}
+	public void toggleOffset(){
+		if (isOn == false) {
+			isOn = true;
+			
+		} 
+		else
+			isOn = false;
+	}
+	
+	public void moveLampToLeft(){
+		lamp.transform.Translate(-14f, 0, 0);
+	}
 }

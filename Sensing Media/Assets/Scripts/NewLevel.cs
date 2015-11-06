@@ -50,6 +50,8 @@ public class NewLevel : MonoBehaviour {
         PathTracer.guiTime.enabled = false;
         PathTracer.guiScore.enabled = false;
 		PathTracer.guiScoreBox.enabled = false;
+		Infotoggle.infoPanel.enabled = false;
+		Infotoggle.infoText.enabled = false;
 
 		PathTracer.path1.SetActive (false);
 		PathTracer.path2.SetActive (false);

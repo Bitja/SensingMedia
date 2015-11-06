@@ -16,7 +16,7 @@ public class PathTracer : MonoBehaviour {
     private RaycastHit hit;
     private List<Vector2> points;
     public static float nearestP;
-	private static int currentLevel = 0;
+	public static int currentLevel = 0;
 
     private int changeTex;
     public static int width;
