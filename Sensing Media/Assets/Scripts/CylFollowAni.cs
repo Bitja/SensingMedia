@@ -44,7 +44,7 @@ public class CylFollowAni : MonoBehaviour {
         // the following order matters: Start() at the button with widget1 after!
         tutorialState = 0;
         dialog.enabled = true;
-        dialog.text = "Imitate the animation with the tangible widget. \n Firstly, place it on the touch screen.";
+        dialog.text = "To unlock the rune, first I have to place my widget on the light. \n Like this!";
         mStart.SetActive(true);
         mTut.SetActive(true);
         
@@ -55,7 +55,7 @@ public class CylFollowAni : MonoBehaviour {
     }
 
     public void playAnimation() {
-        dialog.text = "Imitate the animation with the tangible widget. \n Firstly, place it on the touch screen.";
+        dialog.text = "To unlock the rune, first I have to place my widget on the light. \n Like this!";
         widget1.SetActive(true);
         runeBack.SetActive(true);
         panel.SetActive(true);
@@ -90,12 +90,12 @@ public class CylFollowAni : MonoBehaviour {
     void OnCollisionExit(Collision col) {
         if (col.gameObject.name == "CylinderMouseTut") {
             if (tutorialState == 1) {
-                dialog.text = "Drag it to the blue circle.";
+				dialog.text = "Then I have to draw the rune, by dragging the widget across the stone.";
                 widget2.SetActive(true);
                 tutorialState++;
             }
             if (tutorialState == 3) {
-                dialog.text = "Now, drag it to the next blue circle. \n Notice how the widget light changes near the blue circle.";
+                dialog.text = "And I have to continue drawing, all the way to the end. \n Look how the light changes! It's showing me the way.";
                 widget3.SetActive(true);
                 mStart.SetActive(true);
                 mStart.transform.position += moveR;
@@ -106,7 +106,7 @@ public class CylFollowAni : MonoBehaviour {
     }
 
     public void pathState() {
-        dialog2.text = "Drag the widget along the line from the left circle to the right. \n Notice how the ligth changes, when you leave the path.";
+        dialog2.text = "Okay this is the real deal! I have to draw this rune starting from the left circle to the right. \n The light will help me stay on track.";
         imgBack.enabled = true;
         transImage.SetActive(true);
         panel.SetActive(false);

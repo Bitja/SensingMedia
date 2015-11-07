@@ -9,7 +9,7 @@ public class PathTracer : MonoBehaviour {
     public static bool isEnabled = false;
     public static Text guiScore, guiTime;
 	public static Image guiScoreBox; 
-	public static GameObject path1, path2, path3, path4, path5;	
+	public static GameObject path1, path2, path3, path4, path5, path6;	
 	public static GameObject catObj1, catObj2, catObj3, catObj4, catObj5;
 
     private float preX = -1;
@@ -33,8 +33,8 @@ public class PathTracer : MonoBehaviour {
 		path2 = GameObject.Find ("path2");
 		path3 = GameObject.Find ("path3");
 		path4 = GameObject.Find ("path4");
-		path5 = GameObject.Find ("path5");
-
+		path5 = GameObject.Find ("path5");		
+		path6 = GameObject.Find ("path6");
 		
 		catObj1 = GameObject.Find ("cat1");
 		catObj2 = GameObject.Find ("cat2");
@@ -48,8 +48,8 @@ public class PathTracer : MonoBehaviour {
 		path2.SetActive(false);
 		path3.SetActive(false);
 		path4.SetActive(false);
-		path5.SetActive(false);
-
+		path5.SetActive(false);	
+		path6.SetActive(false);
 
 		catObj1.SetActive(false);
 		catObj2.SetActive(false);
@@ -136,6 +136,8 @@ public class PathTracer : MonoBehaviour {
 			path4.SetActive(true);
 		else if(currentLevel == 4)
 			path5.SetActive(true);
+		else if(currentLevel == 5)
+			path6.SetActive(true);
 
 
 		//Dispay cat heads
@@ -156,7 +158,7 @@ public class PathTracer : MonoBehaviour {
 		}
 
 		Debug.Log ("score");
-        guiScore.text = "Score: " + Handler.getAccuracy() + "%";
+        guiScore.text = "Score: " + (int)Handler.getAccuracy() + "%";
         guiTime.text = "Time: " + Handler.timeDisplay + " seconds";
 
         toggle(false);
