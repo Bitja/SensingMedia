@@ -69,12 +69,14 @@ public class CylFollowAni : MonoBehaviour {
                 cylFollowAni.SetActive(true);
                 widget1.SetActive(false);
                 tutorialState++;
+                Audio.audiostate = 5; // plays sound
             }
             if (tutorialState == 2) {
                 mStart.SetActive(false);
                 widget2.SetActive(false);
                 mTut.transform.position += moveR;
                 tutorialState++;
+                Audio.audiostate = 7; // plays sound
             }
             if (tutorialState == 4) {
 				GradiantLamp.skammekrog = true;
@@ -83,6 +85,7 @@ public class CylFollowAni : MonoBehaviour {
                 widget3.SetActive(false);
                 pathButtonObj.SetActive(true);
                 tutorialState++;
+                Audio.audiostate = 9; // plays sound
             }
         }
     }

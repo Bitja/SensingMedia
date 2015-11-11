@@ -45,9 +45,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Audio.cs" />
      <Compile Include="Assets\Scripts\CanvasToggle.cs" />
      <Compile Include="Assets\Scripts\Circle.cs" />
-     <Compile Include="Assets\Scripts\CylFollow.cs" />
      <Compile Include="Assets\Scripts\CylFollowAni.cs" />
      <Compile Include="Assets\Scripts\GetMouseOfset.cs" />
      <Compile Include="Assets\Scripts\GradiantLamp.cs" />
@@ -61,24 +61,31 @@
      <Compile Include="Assets\Scripts\RightORLeft.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\ChangeScene.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\CrossFadePlane.cs" />
+     <Compile Include="Assets\Scripts\ScriptOLD\CylFollow.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\GetMousePosition.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\OffsetPlane.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\WhitePixelCount.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\button.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\getPosition.cs" />
      <Compile Include="Assets\Scripts\ScriptOLD\lampGlow.cs" />
+     <Compile Include="Assets\Scripts\ScriptOLD\mouseTut.cs" />
      <Compile Include="Assets\Scripts\StartMenu.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\TogglePlanes.cs" />
      <Compile Include="Assets\Scripts\ToggleTutorial.cs" />
-     <Compile Include="Assets\Scripts\mouseTut.cs" />
      <Compile Include="Assets\Scripts\mouseTutAni.cs" />
      <Compile Include="Assets\Scripts\touchInput.cs" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
