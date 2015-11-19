@@ -15,7 +15,7 @@ public class CanvasToggle : MonoBehaviour {
         //diaPanel.SetActive(false);
         PathTracer.guiTime.enabled = false; 
         PathTracer.guiScore.enabled = false;       
-        restartButton.SetActive(false);
+        //restartButton.SetActive(false);
     }
     public void CanvasHide() {
         imgStart.CrossFadeAlpha(0.0f, 0.5f, true);
@@ -23,7 +23,7 @@ public class CanvasToggle : MonoBehaviour {
         //ParticleDown.Clear(true);
         cyl.SetActive(false);
         diaText.SetActive(true);
-        restartButton.SetActive(true);
+        //restartButton.SetActive(true);
         //diaPanel.SetActive(true);
         GameObject.Find("TextAnimation").SetActive(false);
         

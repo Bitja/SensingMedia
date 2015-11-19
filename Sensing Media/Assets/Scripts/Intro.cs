@@ -10,7 +10,7 @@ public class Intro : MonoBehaviour {
 	public static Texture2D CurrentTex;
 	private static Renderer rend;
 	public GameObject objDialog;
-	private Text dialog;
+	public static Text dialog;
 
 
 
@@ -35,17 +35,18 @@ public class Intro : MonoBehaviour {
 			dialog.enabled = false;
 		}
 		if (currentStory == 0) {
-			dialog.text = "This is the grand magical forest. The secrets of the rune magic is hidden inside," +
+			dialog.text = "This is the grand magical forest. The secrets of the rune magic is hidden inside, " +
 				"and only the foolish would ever think to try and venture there.";
 		} else if (currentStory == 1) {
-			dialog.text = "Which is why I am going in there! Together with my trusted companion Sir Whiskers," +
+			dialog.text = "Which is why I am going in there! Together with my trusted companion Sir Whiskers, " +
 				"I shall learn the secrets of the runes!";
 		} else if (currentStory == 2) {
 			dialog.text = "I have to be quick and accuarte. The forest does not give up its secrets to just anyone.";
 		}
 		else if (currentStory ==3){
 			dialog.text = "But I have faith. My adventure is just about to start.";
-		}
+            GameObject.Find("IntroNext").SetActive(false); // new
+        }
 	}
 	
 }

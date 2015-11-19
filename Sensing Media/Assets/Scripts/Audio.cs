@@ -6,7 +6,7 @@ public class Audio : MonoBehaviour {
 
     public static int audiostate = 0;
     private AudioSource audio;
-    public AudioClip hand, blob, metal, swing, next, wand1, wand2, wand3;
+    public AudioClip hand, blob, metal, swing, next, wand1, wand2, wand3; 
 
 
     void Start() {

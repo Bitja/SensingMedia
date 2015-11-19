@@ -24,6 +24,7 @@ public class Handler : MonoBehaviour {
     public static void prepare() {
 
         if (state == 0) {
+            Audio.audiostate = 5; // play sound
             PathTracer.toggle(true);
             countStart = PathTracer.countPixels(Color.white); // moved her because: slow in start() in creates a delay! 
             state++;		
@@ -45,6 +46,7 @@ public class Handler : MonoBehaviour {
 
     public static void end() { // smaller circle
         if (state == 2) {
+            Audio.audiostate = 9; // play sound
             state++; 
             timestampEnd = getMillis();
             countEnd = PathTracer.countPixels(Color.white); // slow function creates a delay! Easy solution DONE: calls function when mouse moves out of each inner circle.

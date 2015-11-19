@@ -4,17 +4,16 @@ using System.Collections;
 
 public class Infotoggle : MonoBehaviour {
 
-	public GameObject infoTextObject, infoPanelObject;
+	public GameObject infoTextObject, infoPanelObject, infoTextlvl1Object;
 	public static GameObject infoButton,infoImage1,infoImage2,infoImage3,infoImage4,infoImage5;
 	public static Image infoPanel;
-	public static Text infoText;
+	public static Text infoText, infoTextlvl1;
 
-
-
-	void Start () {
+    void Start () {
 		infoButton = GameObject.Find ("InfoButton");
 		infoText = infoTextObject.GetComponent<Text>();
-		infoPanel = infoPanelObject.GetComponent<Image>();
+        infoTextlvl1 = infoTextlvl1Object.GetComponent<Text>();
+        infoPanel = infoPanelObject.GetComponent<Image>();
 
 		infoImage1 = GameObject.Find ("InfoImage1");
 		infoImage2 = GameObject.Find ("InfoImage2");
@@ -30,7 +29,8 @@ public class Infotoggle : MonoBehaviour {
 
 		infoButton.SetActive(false);
 		infoText.enabled = false;
-		infoPanel.enabled = false;
+        infoTextlvl1.enabled = false;
+        infoPanel.enabled = false;
 	
 	}
 
@@ -41,33 +41,42 @@ public class Infotoggle : MonoBehaviour {
 	public void showInfo(){
 		infoButton.SetActive (false);
 		infoText.enabled = true;
-		infoPanel.enabled = true;
+        infoTextlvl1.enabled = true;
+        infoPanel.enabled = true;
 		
 		if (PathTracer.currentLevel == 0) {
 			infoText.text = "Hello world";
-		}
-		else if (PathTracer.currentLevel == 1) {
-			infoText.text = "For your next task, use the transparent widget.";
-			infoImage1.SetActive (true);
+            infoTextlvl1.text = "Keep our eyes open for the line, it will disappear!";
+            infoImage1.SetActive(true);
+        }
+        else if (PathTracer.currentLevel == 1) {
+			infoText.text = "For your next task, use the tourch with the transparent center.";
+            infoTextlvl1.text = "Keep our eyes open for the line, it will disappear!";
+            infoImage1.SetActive (true);
 		}
 		else if (PathTracer.currentLevel == 2) {
-			infoText.text = "For your next task, use your finger and the light following it.";
+            infoTextlvl1.enabled = false;
+            infoText.text = "For your next task, use your finger and the light next to it.";
 			infoImage2.SetActive (true);
 		}
 		else if (PathTracer.currentLevel == 3) {
-			infoText.text = "For your next task, use the solid widget and the light in the corner.";
+            infoTextlvl1.enabled = false;
+            infoText.text = "For your next task, use the solid widget and the light in the corner.";
 			infoImage3.SetActive (true);
 		}		
 		else if (PathTracer.currentLevel == 4) {
-			infoText.text = "For your next task, use your finger and the light in the corner.";
+            infoTextlvl1.enabled = false;
+            infoText.text = "For your next task, use your finger and the light in the corner.";
 			infoImage4.SetActive (true);
 		}
 		else if (PathTracer.currentLevel == 5) {
-			infoText.text = "For your next task, use the solid widget and the light following it.";
+            infoTextlvl1.enabled = false;
+            infoText.text = "For your next task, use the solid widget and the light next to it.";
 			infoImage5.SetActive (true);
 		}
 		else if (PathTracer.currentLevel == 6) {
-			infoText.text = "That was it for the test. Thank you for your participation.";
+            infoTextlvl1.enabled = false;
+            infoText.text = "That was it for the test. Thank you for your participation.";
 		}
 
 	}

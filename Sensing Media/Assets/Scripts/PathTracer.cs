@@ -9,8 +9,7 @@ public class PathTracer : MonoBehaviour {
     public static bool isEnabled = false;
     public static Text guiScore, guiTime;
 	public static Image guiScoreBox; 
-	public static GameObject path1, path2, path3, path4, path5, path6;	
-	public static GameObject catObj1, catObj2, catObj3, catObj4, catObj5;
+	public static GameObject path1, path2, path3, path4, path5, path6, catObj1, catObj2, catObj3, catObj4, catObj5, catObj1alphaObj;
 
     private float preX = -1;
     private float preY = -1;
@@ -22,8 +21,6 @@ public class PathTracer : MonoBehaviour {
     private int changeTex;
     public static int width;
 	
-
-	
 	void Start() {
         guiScore = scoreObject.GetComponent<Text>();
         guiTime = timeObject.GetComponent<Text>();
@@ -34,7 +31,7 @@ public class PathTracer : MonoBehaviour {
 		path3 = GameObject.Find ("path3");
 		path4 = GameObject.Find ("path4");
 		path5 = GameObject.Find ("path5");		
-		path6 = GameObject.Find ("path6");
+		path6 = GameObject.Find ("Exit");
 		
 		catObj1 = GameObject.Find ("cat1");
 		catObj2 = GameObject.Find ("cat2");
@@ -42,7 +39,9 @@ public class PathTracer : MonoBehaviour {
 		catObj4 = GameObject.Find ("cat4");
 		catObj5 = GameObject.Find ("cat5");
 
-		guiScoreBox.enabled = false;
+        catObj1alphaObj = GameObject.Find("cat-transparent");
+
+        guiScoreBox.enabled = false;
 
 		path1.SetActive(false);
 		path2.SetActive(false);
@@ -56,6 +55,8 @@ public class PathTracer : MonoBehaviour {
 		catObj3.SetActive(false);
 		catObj4.SetActive(false);
 		catObj5.SetActive(false);
+
+        catObj1alphaObj.SetActive(false);
 
     }
 
@@ -118,7 +119,6 @@ public class PathTracer : MonoBehaviour {
 
 	public void setCurrentLevel(int level){
 		currentLevel = level;
-		//Debug.Log (currentLevel);
 	}
 
     public static void displayScore() {
@@ -142,7 +142,8 @@ public class PathTracer : MonoBehaviour {
 
 		//Dispay cat heads
 		if (Handler.getAccuracy () >= 0) {
-			catObj1.SetActive (true);
+            catObj1alphaObj.SetActive(true);
+            catObj1.SetActive (true);
 			if (Handler.getAccuracy () >= 20) {
 				catObj2.SetActive (true);
 				if (Handler.getAccuracy () >= 40) {
@@ -158,7 +159,7 @@ public class PathTracer : MonoBehaviour {
 		}
 
 		Debug.Log ("score");
-        guiScore.text = "Score: " + (int)Handler.getAccuracy() + "%";
+        guiScore.text = "You hit " + (int)Handler.getAccuracy() + "% of the rune!";
         guiTime.text = "Time: " + Handler.timeDisplay + " seconds";
 
         toggle(false);

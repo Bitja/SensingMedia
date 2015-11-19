@@ -9,11 +9,11 @@ public class ToggleTutorial : MonoBehaviour {
 		if (IsEnabled == true) {
 			tutorial.SetActive (false);
 			IsEnabled = false;
-		} 
+            Intro.dialog.enabled = false; // new
+        } 
 		else if (IsEnabled == false) {
 			tutorial.SetActive (true);
 			IsEnabled = true;
-		}
-
+        }
 	}
 }
