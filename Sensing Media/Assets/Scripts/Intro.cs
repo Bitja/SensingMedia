@@ -40,8 +40,9 @@ public class Intro : MonoBehaviour {
 		} else if (currentStory == 1) {
 			dialog.text = "Which is why I am going in there! Together with my trusted companion Sir Whiskers, " +
 				"I shall learn the secrets of the runes!";
+
 		} else if (currentStory == 2) {
-			dialog.text = "I have to be quick and accuarte. The forest does not give up its secrets to just anyone.";
+			dialog.text = "I have to be quick and accurate. The forest does not give up its secrets to just anyone.";
 		}
 		else if (currentStory ==3){
 			dialog.text = "But I have faith. My adventure is just about to start.";
