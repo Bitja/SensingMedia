@@ -3,9 +3,7 @@ using System.Collections;
 
 public class ChangeScene : MonoBehaviour {
 
-    public void ChangeToScene(int sceneToChangeTo) {
-        Application.LoadLevel(sceneToChangeTo);
-        PathTracer.toggle(false);
-        Handler.reset();
+    public void ChangeToGameLevel() {
+		Application.LoadLevel("Lvl1 - BiancaNEWpaths");
     }
 }

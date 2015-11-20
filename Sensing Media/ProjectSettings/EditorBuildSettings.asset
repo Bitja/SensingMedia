@@ -5,25 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/ScenesOLD/00_TouchInputScene.unity
-  - enabled: 0
-    path: Assets/ScenesOLD/01_GetPosition.unity
-  - enabled: 0
-    path: Assets/ScenesOLD/02_Particles.unity
-  - enabled: 0
-    path: Assets/ScenesOLD/03_Animated.unity
-  - enabled: 0
-    path: Assets/ScenesOLD/Lamp.unity
-  - enabled: 0
-    path: Assets/Lvl1 - Bianca.unity
-  - enabled: 0
-    path: Assets/Lvl1.unity
-  - enabled: 0
-    path: Assets/Lvl2.unity
-  - enabled: 0
-    path: Assets/Lvl3.unity
-  - enabled: 0
-    path: Assets/Lvl1 - BiancaNEWpaths.unity
   - enabled: 1
-    path: Assets/Lvl1 - BiancaTutorial.unity
+    path: Assets/Start.unity
+  - enabled: 1
+    path: Assets/State1.unity
+  - enabled: 1
+    path: Assets/Template.unity
+  - enabled: 1
+    path: Assets/Template-BackUp.unity

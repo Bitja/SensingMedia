@@ -4,6 +4,7 @@ using System;
 
 public class Handler : MonoBehaviour {
 
+
     private static int stage = 0;
     private static int state = 0;
     private static long timestampBeg = 0;
@@ -21,14 +22,15 @@ public class Handler : MonoBehaviour {
     }
 
     public static void prepare() {
+
         if (state == 0) {
-            Debug.Log("ok4");
+            Audio.audiostate = 5; // play sound
             PathTracer.toggle(true);
-            Debug.Log("ok5");
-            state++;
-            Debug.Log("ok6"); //dead
             countStart = PathTracer.countPixels(Color.white); // moved her because: slow in start() in creates a delay! 
-            Debug.Log("Preparing for Start");
+            state++;		
+			Debug.Log("Preparing for Start");
+			if(GradiantLamp.lampIsOn==false)
+				GradiantLamp.skammekrog = false;
         }
     }
 
@@ -36,7 +38,7 @@ public class Handler : MonoBehaviour {
         if (state == 1) {
             state++;
             timestampBeg = getMillis();
-            
+			Timer.timerFrozen = false;
             Debug.Log("Starting");
         }
     }
@@ -44,6 +46,7 @@ public class Handler : MonoBehaviour {
 
     public static void end() { // smaller circle
         if (state == 2) {
+            Audio.audiostate = 9; // play sound
             state++; 
             timestampEnd = getMillis();
             countEnd = PathTracer.countPixels(Color.white); // slow function creates a delay! Easy solution DONE: calls function when mouse moves out of each inner circle.
@@ -52,13 +55,17 @@ public class Handler : MonoBehaviour {
             dataList[stage].millis = timestampEnd - timestampBeg;
             dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart ;
             dataList[stage].count = countEnd;
-            
+
             Debug.Log("Ending");
             Debug.Log("Time: " + (dataList[stage].millis / 1000.0f));
             Debug.Log("Accuracy: " + dataList[stage].accuracy);
             timeDisplay = dataList[stage].millis / 1000.0f;
             PathTracer.displayScore();
-        }
+			Infotoggle.showInfoButton();
+			Timer.timerFrozen = true;
+			if(GradiantLamp.lampIsOn==false)
+				GradiantLamp.skammekrog = true;
+			       }
     }
 
     public static void reset() {
@@ -76,4 +83,6 @@ public class Handler : MonoBehaviour {
     public static float getAccuracy() {
         return dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart;
     }
+
+
 }
