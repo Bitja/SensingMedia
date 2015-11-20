@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Handler.cs" />
      <Compile Include="Assets\Scripts\Infotoggle.cs" />
      <Compile Include="Assets\Scripts\Intro.cs" />
+     <Compile Include="Assets\Scripts\Logging.cs" />
      <Compile Include="Assets\Scripts\MenuToggle.cs" />
      <Compile Include="Assets\Scripts\MirrorLamps.cs" />
      <Compile Include="Assets\Scripts\NewLevel.cs" />
@@ -76,17 +77,12 @@
      <Compile Include="Assets\Scripts\mouseTut.cs" />
      <Compile Include="Assets\Scripts\mouseTutAni.cs" />
      <Compile Include="Assets\Scripts\touchInput.cs" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
