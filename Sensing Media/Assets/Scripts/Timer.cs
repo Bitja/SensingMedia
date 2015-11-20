@@ -21,11 +21,12 @@ public class Timer : MonoBehaviour {
 	public void resetTimer(){
 		timer.SetActive(true);		
 		isOn = true;
-		mytimer = 60;
-		minutes = 2;
+		mytimer = 59;
+		minutes = 1;
 	}
 	void Start () {
         counterText = GetComponent<Text>() as Text;
+        Debug.Log(timerFrozen);
 	}
 	
 	void Update () {

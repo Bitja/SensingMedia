@@ -66,7 +66,7 @@ public class CylFollowAni : MonoBehaviour {
         // the following order matters: Start() at the button with widget1 after!
         tutorialState = 0;
         dialog.enabled = true;
-        dialog.text = "To unlock the rune, first I have to place my widget on the light. \n Like this!";
+        dialog.text = "To unlock the rune, first I have to <b>place my magic lens</b> on the light. \n Like this!";
         //mStart.SetActive(true);
         //mTut.SetActive(true);
         if (left == 0) {
@@ -92,7 +92,7 @@ public class CylFollowAni : MonoBehaviour {
 
     public void playAnimation() {
         Debug.Log(left);
-        dialog.text = "To unlock the rune, first I have to place my widget on the light. \n Like this!";
+        dialog.text = "To unlock the rune, first I have to <b>place my magic lens</b> on the light. \n Like this!";
         if (left == 1) {
             mStartR.SetActive(false);
             mTutR.SetActive(false);
@@ -170,7 +170,7 @@ public class CylFollowAni : MonoBehaviour {
     void OnCollisionExit(Collision col) {
         if (col.gameObject.name == "CylinderMouseTut") {
             if (tutorialState == 1) {
-				dialog.text = "Then I have to draw the rune, by dragging the widget across the stone.";
+				dialog.text = "Then I have to draw the rune, by <b>dragging the magic lens</b> across the stone.";
                 //widget2.SetActive(true);
                 if (left == 1) {
                     widget2.SetActive(true);
@@ -181,7 +181,7 @@ public class CylFollowAni : MonoBehaviour {
                 tutorialState++;
             }
             if (tutorialState == 3) {
-                dialog.text = "And I have to continue drawing, all the way to the end. \n Look how the light changes! It's showing me the way.";
+                dialog.text = "Look how the <b>light changes</b>! It's showing me the way.";
                 //widget3.SetActive(true);
                 //mStart.SetActive(true);
                 // mStart.transform.position += moveR;
@@ -210,5 +210,6 @@ public class CylFollowAni : MonoBehaviour {
         GameObject.Find("CylinderMouseTut").transform.position += new Vector3(0.0f, 50.0f, 0.0f); //moves mouse away from screen view
         imgBack.CrossFadeAlpha(0.0f, 2.0f, true);
         tutorialState++;
+        Timer.timerFrozen = true;
     }
 }

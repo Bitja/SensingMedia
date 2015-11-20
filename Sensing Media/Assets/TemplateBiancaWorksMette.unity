@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -411,7 +411,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Look at the rock!
+  m_Text: Go to the rock!
 --- !u!222 &21114132
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3147,7 +3147,7 @@ RectTransform:
   - {fileID: 1498646709}
   - {fileID: 1838812694}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3629,7 +3629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .264273345, g: .264273345, b: .345588207, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3848,7 +3848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .733333349, g: .733333349, b: .733333349, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3857,7 +3857,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 16
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -4501,7 +4501,7 @@ Transform:
   - {fileID: 1222272689}
   - {fileID: 1183316351}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1001 &330024776
 Prefab:
   m_ObjectHideFlags: 0
@@ -4691,7 +4691,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
 --- !u!1 &353223879 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 109934, guid: 5782d154d5fa3ce449be512aed6b1adc, type: 2}
@@ -5986,7 +5986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7659,7 +7659,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 607545124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.25, y: 3.77999997, z: -.189999998}
+  m_LocalPosition: {x: -.25, y: 4.5, z: -.189999998}
   m_LocalScale: {x: 1.07160485, y: 1, z: 1}
   m_Children:
   - {fileID: 318252606}
@@ -12415,7 +12415,7 @@ Transform:
   - {fileID: 1607378032}
   - {fileID: 2062832554}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!114 &797080714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12764,7 +12764,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!224 &811261275
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12780,7 +12780,7 @@ RectTransform:
   - {fileID: 1800020089}
   - {fileID: 2140274914}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -13105,7 +13105,7 @@ Transform:
   - {fileID: 2075672582}
   - {fileID: 2034493069}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1 &846747519
 GameObject:
   m_ObjectHideFlags: 0
@@ -13286,7 +13286,7 @@ RectTransform:
   - {fileID: 1537151888}
   - {fileID: 324916121}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -13423,9 +13423,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "The Wizard's Guide:\n\nThe colour of the light tells you when you are on
-    the path.\n\n\n\n\n\n\n\n\n\n\nOnly the most gifted wizard has the power to make
-    the green light appear. \n\nYou have ?? seconds to do your magic!"
+  m_Text: "<b>The Wizard's Guide:</b>\n\nThe colour of the light shows when you are
+    on the path or not.\n\n\n\n\n\n\n\n\n\n\nOnly the most gifted wizard has the power
+    to make the green light appear. \n\nYou have 120 seconds."
 --- !u!222 &878478411
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14154,7 +14154,7 @@ Transform:
   m_Children:
   - {fileID: 633454442}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!114 &926136875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14288,7 +14288,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4270fde5b1b30c446aa6ec70569b24e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8aba7f2ff2f9c8947bc10fba71ac7f48, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14521,7 +14521,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Follow path!
+  m_Text: Cast the spell!
 --- !u!222 &945901048
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15373,7 +15373,7 @@ Transform:
   - {fileID: 1120929442}
   - {fileID: 1227066475}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
 --- !u!1 &1027944724
 GameObject:
   m_ObjectHideFlags: 0
@@ -17266,7 +17266,7 @@ Transform:
   m_Children:
   - {fileID: 898301203}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &1175868861
 GameObject:
   m_ObjectHideFlags: 0
@@ -20227,7 +20227,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
-  m_AnchoredPosition: {x: 170, y: -50}
+  m_AnchoredPosition: {x: 175, y: -55}
   m_SizeDelta: {x: 160, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1310479051
@@ -20330,7 +20330,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -20341,17 +20341,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2127088956}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -20580,7 +20569,7 @@ RectTransform:
   - {fileID: 1892420075}
   - {fileID: 1175868862}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -20925,64 +20914,6 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 109934, guid: 5782d154d5fa3ce449be512aed6b1adc, type: 2}
   m_PrefabInternal: {fileID: 1593673636}
---- !u!1001 &1351943508
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -.707106829
-      objectReference: {fileID: 0}
-    - target: {fileID: 400030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: .707106709
-      objectReference: {fileID: 0}
-    - target: {fileID: 400030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 400030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 100030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-  m_IsPrefabParent: 0
 --- !u!1 &1352585718
 GameObject:
   m_ObjectHideFlags: 0
@@ -22042,7 +21973,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
 --- !u!1 &1458106077
 GameObject:
   m_ObjectHideFlags: 0
@@ -22229,7 +22160,7 @@ Transform:
   - {fileID: 423931960}
   - {fileID: 2034009187}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1 &1482315700 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 109934, guid: 5782d154d5fa3ce449be512aed6b1adc, type: 2}
@@ -22806,34 +22737,6 @@ SpriteRenderer:
 GameObject:
   m_PrefabParentObject: {fileID: 109934, guid: 5782d154d5fa3ce449be512aed6b1adc, type: 2}
   m_PrefabInternal: {fileID: 152525386}
---- !u!1 &1520708859 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100030, guid: aa79c53d024b0224c9a2fd6e9feaec3a, type: 3}
-  m_PrefabInternal: {fileID: 1351943508}
---- !u!23 &1520708862
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1520708859}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: d80ba577ea048dc4292961608f4a975b, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!1 &1526463742
 GameObject:
   m_ObjectHideFlags: 0
@@ -24889,7 +24792,7 @@ Transform:
   - {fileID: 133431701}
   - {fileID: 330024777}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1 &1658071367
 GameObject:
   m_ObjectHideFlags: 0
@@ -25691,7 +25594,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 558692287}
         m_MethodName: toggleOff
@@ -27667,7 +27570,7 @@ Transform:
   - {fileID: 1147300220}
   - {fileID: 1205716626}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1001 &1845675751
 Prefab:
   m_ObjectHideFlags: 0
@@ -30074,7 +29977,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 20
-    m_FontStyle: 0
+    m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
@@ -30620,7 +30523,7 @@ RectTransform:
   - {fileID: 2133507831}
   - {fileID: 87844351}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -31059,7 +30962,7 @@ RectTransform:
   - {fileID: 1609232237}
   - {fileID: 288580431}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -31680,7 +31583,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 500, y: 100}
+  m_SizeDelta: {x: 450, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2127088958
 MonoBehaviour:
@@ -31712,9 +31615,9 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "Okay this is the real deal! I have to trace this line starting from the
-    left circle to the right.\r"
+    m_LineSpacing: 1.5
+  m_Text: "Okay let's try it out! I have to trace this line starting from the left
+    circle to the right.\r"
 --- !u!222 &2127088959
 CanvasRenderer:
   m_ObjectHideFlags: 0

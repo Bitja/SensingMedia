@@ -37,8 +37,6 @@ public class NewLevel : MonoBehaviour {
             cubeobjPath5.SetActive(false);
         }
 
-        
-
         imageFadePlane1 = fadePlane1.GetComponent<Image>();
 		imageFadePlane2 = fadePlane2.GetComponent<Image>();
 		imageFadePlane3 = fadePlane3.GetComponent<Image>();
@@ -136,7 +134,7 @@ public class NewLevel : MonoBehaviour {
             cubeobjPath4.SetActive(false);
             cubeobjPath5.SetActive(true);
         }
-        Debug.Log("Preparing...");
+        Debug.Log("Preparing new level..");
 		CurrentTex = myTextures[sceneToChangeTo];
 	
         rend.material.mainTexture = CurrentTex; 

@@ -24,7 +24,7 @@ public class mouseTutAni : MonoBehaviour {
             else if (unitDistance < 5) {
                 lerb1 = unitDistance-4.0f;
                 rend.material.color = Color.Lerp(colorStart, colorEnd, lerb1);
-                Debug.Log("2: " + rend.material.color);
+                //Debug.Log("2: " + rend.material.color);
 
             }
             else if (unitDistance >= 5) {

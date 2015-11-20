@@ -50,7 +50,7 @@ public class Infotoggle : MonoBehaviour {
             infoImage1.SetActive(true);
         }
         else if (PathTracer.currentLevel == 1) {
-			infoText.text = "For your next task, use the tourch with the transparent center.";
+			infoText.text = "For your next task, use the magic lens.";
             infoTextlvl1.text = "Keep our eyes open for the line, it will disappear!";
             infoImage1.SetActive (true);
 		}
@@ -61,7 +61,7 @@ public class Infotoggle : MonoBehaviour {
 		}
 		else if (PathTracer.currentLevel == 3) {
             infoTextlvl1.enabled = false;
-            infoText.text = "For your next task, use the solid widget and the light in the corner.";
+            infoText.text = "For your next task, use the magic gem and the light in the corner.";
 			infoImage3.SetActive (true);
 		}		
 		else if (PathTracer.currentLevel == 4) {
@@ -71,7 +71,7 @@ public class Infotoggle : MonoBehaviour {
 		}
 		else if (PathTracer.currentLevel == 5) {
             infoTextlvl1.enabled = false;
-            infoText.text = "For your next task, use the solid widget and the light next to it.";
+            infoText.text = "For your next task, use the magic gem and the light next to it.";
 			infoImage5.SetActive (true);
 		}
 		else if (PathTracer.currentLevel == 6) {
