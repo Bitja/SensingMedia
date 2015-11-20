@@ -5,23 +5,39 @@ using UnityEngine.UI;
 
 public class PathTracer : MonoBehaviour {
 
-    public GameObject scoreObject, timeObject;
-    public Texture2D texture;
-    private static Texture2D clone;
+	public GameObject scoreObject, timeObject,scoreBox;//testing
     public static bool isEnabled = false;
-    private static Text guiScore, guiTime;
+    public static Text guiScore, guiTime;
+	public static Image guiScoreBox; 
+	public static GameObject path2, path3, path4;
+
     private float preX = -1;
     private float preY = -1;
     private RaycastHit hit;
     private List<Vector2> points;
     public static float nearestP;
-    //public GameObject UIobj;
+	private static int currentLevel = 1;
 
-    void Start() {
-        clone = Instantiate(texture);
-        GetComponent<Renderer>().material.mainTexture = clone;
+    private int changeTex;
+    public static int width;
+	
+
+	
+	void Start() {
         guiScore = scoreObject.GetComponent<Text>();
         guiTime = timeObject.GetComponent<Text>();
+		guiScoreBox = scoreBox.GetComponent<Image>();
+
+	
+		path2 = GameObject.Find ("path2");
+		path3 = GameObject.Find ("path3");
+		path4 = GameObject.Find ("path4");
+
+		guiScoreBox.enabled = false;
+
+		path2.SetActive(false);
+		path3.SetActive(false);
+		path4.SetActive(false);
     }
 
     void Update() {
@@ -40,7 +56,7 @@ public class PathTracer : MonoBehaviour {
                 float y = uv.y * tex.height;
 
                 if (preX >= 0 && (preX != x || preY != y)) { 
-                    int width = 15;
+					width = 30 ;
                     nearestP = width;
 
                     for (int i = -width / 2; i <= width / 2; i++)
@@ -50,17 +66,16 @@ public class PathTracer : MonoBehaviour {
                             if (pDistance <= width / 2.0)
                             {
                                 Color pColor = tex.GetPixel((int)(x + i), (int)(y + j));
-                                if (pColor == Color.white || pColor == Color.red)
+                                if (pColor != Color.black)
                                 {
-                                    if (pColor == Color.white)
+                                    if (pColor != Color.red)
                                         tex.SetPixel((int)(x + i), (int)(y + j), Color.red);
                                     if (nearestP > pDistance)
                                         nearestP = pDistance;
                                 }
                             }
                         }
-  
-                    nearestP /= width;
+					nearestP /= width /= 2;
 
                     float length = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(preX - x), 2) + Mathf.Pow(Mathf.Abs(preY - y), 2));
                     Vector2 A, B;
@@ -69,12 +84,10 @@ public class PathTracer : MonoBehaviour {
                     B.x = x;
                     B.y = y;
                     float angle = Vector3.Angle(A, B);
-                    Debug.Log(angle);
-
                 }
                 preX = x;
                 preY = y;
-                tex.Apply();
+                //tex.Apply();
             }
         }
         else if (!Input.GetMouseButton(0) && preX >= 0) {
@@ -83,10 +96,32 @@ public class PathTracer : MonoBehaviour {
         
     }
 
+	public void setCurrentLevel(int level){
+		currentLevel = level;
+		//Debug.Log (currentLevel);
+	}
+
     public static void displayScore() {
+        guiTime.enabled = true;
+        guiScore.enabled = true;
+		guiScoreBox.enabled = true;
+		Debug.Log ("Level : " + currentLevel);
+		if (currentLevel == 1)
+			path2.SetActive (true);
+		else if(currentLevel == 2)
+			path3.SetActive(true);
+		else if(currentLevel == 3)
+			path4.SetActive(true);
+
+		
+		//path2.SetActive(true);
+		//path3.SetActive(true);
+		//path4.SetActive(true);
+
         guiScore.text = "Score: " + Handler.getAccuracy() + "%";
         guiTime.text = "Time: " + Handler.timeDisplay + " seconds";
         toggle(false);
+		currentLevel ++;
     }  
 
     //arrayToCurve is original Vector3 array, smoothness is the number of interpolations. 
@@ -121,11 +156,11 @@ public class PathTracer : MonoBehaviour {
         isEnabled = b;
     }
 
-    public static int countPixels(Color target_color) {
+    public static int countPixels(Color target_color) { // slow function creates a delay! Easy solution DONE: calls function when mouse moves out of each inner circle (see Handler.cs). 
         int matches = 0;
-        for (int y = 0; y < clone.height; y++){
-            for (int x = 0; x < clone.width; x++){
-                if (clone.GetPixel(x, y) == target_color) matches++;
+        for (int y = 0; y < NewLevel.clone.height; y++) { 
+            for (int x = 0; x < NewLevel.clone.width; x++){
+                if (NewLevel.clone.GetPixel(x, y) == target_color) matches++;
             }
         }
         return matches;

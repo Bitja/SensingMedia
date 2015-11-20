@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - touchInput
-  - 
-  - 
+  - IgnoreLight
+  - mouseLight
   - 
   - 
   - 
