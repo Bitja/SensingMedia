@@ -8,8 +8,11 @@ public class Infotoggle : MonoBehaviour {
 	public static GameObject infoButton,infoImage1,infoImage2,infoImage3,infoImage4,infoImage5;
 	public static Image infoPanel;
 	public static Text infoText, infoTextlvl1;
+	private int infoNr;
 
     void Start () {
+		infoNr = StartMenu.testState;
+		Debug.Log ("infoNr = " + infoNr);
 		infoButton = GameObject.Find ("InfoButton");
 		infoText = infoTextObject.GetComponent<Text>();
         infoTextlvl1 = infoTextlvl1Object.GetComponent<Text>();
@@ -48,36 +51,55 @@ public class Infotoggle : MonoBehaviour {
 			infoText.text = "Hello world";
             infoTextlvl1.text = "Keep our eyes open for the line, it will disappear!";
             infoImage1.SetActive(true);
-        }
-        else if (PathTracer.currentLevel == 1) {
-			infoText.text = "For your next task, use the magic lens.";
-            infoTextlvl1.text = "Keep our eyes open for the line, it will disappear!";
-            infoImage1.SetActive (true);
-		}
-		else if (PathTracer.currentLevel == 2) {
-            infoTextlvl1.enabled = false;
-            infoText.text = "For your next task, use your finger and the light next to it.";
-			infoImage2.SetActive (true);
-		}
-		else if (PathTracer.currentLevel == 3) {
-            infoTextlvl1.enabled = false;
-            infoText.text = "For your next task, use the magic gem and the light in the corner.";
-			infoImage3.SetActive (true);
-		}		
-		else if (PathTracer.currentLevel == 4) {
-            infoTextlvl1.enabled = false;
-            infoText.text = "For your next task, use your finger and the light in the corner.";
-			infoImage4.SetActive (true);
-		}
-		else if (PathTracer.currentLevel == 5) {
-            infoTextlvl1.enabled = false;
-            infoText.text = "For your next task, use the magic gem and the light next to it.";
-			infoImage5.SetActive (true);
 		}
 		else if (PathTracer.currentLevel == 6) {
-            infoTextlvl1.enabled = false;
-            infoText.text = "That was it for the test. Thank you for your participation.";
+			infoTextlvl1.enabled = false;
+			infoText.text = "That was it for the test. Thank you for your participation.";
+		}
+		else if(PathTracer.currentLevel <= 5 && PathTracer.currentLevel >= 1){
+			
+			if(infoNr >5)
+				infoNr = 1;
+
+			if (infoNr == 1) {
+				infoText.text = "For your next task, use the magic lens.";
+				infoTextlvl1.text = "Keep our eyes open for the line, it will disappear!";
+				infoImage1.SetActive (true);
+				infoNr++;
+				Debug.Log ("2: infoNr = " + infoNr);
+
+			}
+			else if (infoNr == 2) {
+				infoTextlvl1.enabled = false;
+				infoText.text = "For your next task, use your finger and the light next to it.";
+				infoImage2.SetActive (true);
+				infoNr++;
+				Debug.Log ("3: infoNr = " + infoNr);
+
+			}
+			else if (infoNr == 3) {
+				infoTextlvl1.enabled = false;
+				infoText.text = "For your next task, use the magic gem and the light in the corner.";
+				infoImage3.SetActive (true);
+				infoNr++;
+			}		
+			else if (infoNr == 4) {
+				infoTextlvl1.enabled = false;
+				infoText.text = "For your next task, use your finger and the light in the corner.";
+				infoImage4.SetActive (true);
+				infoNr++;
+			}
+			else if (infoNr == 5) {
+				infoTextlvl1.enabled = false;
+				infoText.text = "For your next task, use the magic gem and the light next to it.";
+				infoImage5.SetActive (true);
+				infoNr++;
+			}
+
 		}
 
+
+
+        
 	}
 }

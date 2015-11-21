@@ -99,10 +99,11 @@ public class GradiantLamp : MonoBehaviour {
 						//Debug.Log (closestDistance);
 					}
 				}
+				closestDistance-=7.0f;
 				mirrorLerb = (closestDistance-0.32f)/distanceToFarthestPoint;
-
+				
+				closestDistance = 200;
 			}
-			closestDistance = 200;
 		}
 
 	}

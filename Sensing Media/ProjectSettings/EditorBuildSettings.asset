@@ -8,8 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Start.unity
   - enabled: 1
-    path: Assets/State1.unity
+    path: Assets/Scene1.unity
   - enabled: 1
-    path: Assets/Template.unity
+    path: Assets/Scene2.unity
   - enabled: 1
-    path: Assets/Template-BackUp.unity
+    path: Assets/Scene3.unity
+  - enabled: 1
+    path: Assets/Scene4.unity
+  - enabled: 1
+    path: Assets/Scene5.unity
