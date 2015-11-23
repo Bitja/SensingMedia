@@ -9,6 +9,7 @@ public class Handler : MonoBehaviour {
     private static int state = 0;
     private static long timestampBeg = 0;
     public static long timestampEnd = 0;
+    public static long timeOffPath = 0;
     private static int countStart = 1;
     private static int countEnd = 0;
     private static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
@@ -38,13 +39,19 @@ public class Handler : MonoBehaviour {
         if (state == 1) {
             state++;
             timestampBeg = getMillis();
+            timeOffPath = 0;
 			Timer.timerFrozen = false;
             Debug.Log("Starting");
         }
     }
 
+    public static void appendTimeOffPath(long time)
+    {
+        timeOffPath += time;
+    }
 
-    public static void end() { // smaller circle
+    public static void end()
+    { // smaller circle
         if (state == 2) {
             Audio.audiostate = 9; // play sound
             state++; 
@@ -55,6 +62,9 @@ public class Handler : MonoBehaviour {
             dataList[stage].millis = timestampEnd - timestampBeg;
             dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart ;
             dataList[stage].count = countEnd;
+            Logging.log("data.txt",
+                    "SUBJECT" + "\t" + stage + "\t" + (countStart - countEnd) + "\t" + countStart +"\t" + dataList[stage].accuracy + "\t" + dataList[stage].millis + "\t" + timeOffPath
+                );
 
             Debug.Log("Ending");
             Debug.Log("Time: " + (dataList[stage].millis / 1000.0f));
@@ -80,8 +90,14 @@ public class Handler : MonoBehaviour {
         return (long)(DateTime.UtcNow - UnixEpoch).TotalMilliseconds;
     }
 
-    public static float getAccuracy() {
+    public static float getAccuracy()
+    {
         return dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart;
+    }
+
+    public static int getStage()
+    {
+        return stage;
     }
 
 

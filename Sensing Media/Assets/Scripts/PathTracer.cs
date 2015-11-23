@@ -17,6 +17,8 @@ public class PathTracer : MonoBehaviour {
     private List<Vector2> points;
     public static float nearestP;
 	public static int currentLevel = 0;
+    public bool withinRange;
+    public long timestamp;
 
     private int changeTex;
     public static int width;
@@ -57,7 +59,7 @@ public class PathTracer : MonoBehaviour {
 		catObj5.SetActive(false);
 
         catObj1alphaObj.SetActive(false);
-
+        withinRange = true;
     }
 
     void Update() {
@@ -96,7 +98,19 @@ public class PathTracer : MonoBehaviour {
                                 }
                             }
                         }
-					nearestP /= width /= 2;
+                    if (nearestP <= width / 2.0 && !withinRange || nearestP > width / 2.0 && withinRange)
+                    {
+                        withinRange = !withinRange;
+                        if (withinRange)
+                            Handler.appendTimeOffPath(Handler.getMillis() - timestamp);
+                        else
+                            timestamp = Handler.getMillis();
+                    }
+                    Logging.log("subject" + "SUBJECT" + "session" +  Handler.getStage() + ".txt",
+                            Handler.getMillis() + (nearestP <= width/2.0 ? nearestP + "\t" : "DISTANCE TO OBJECT" + "\t")
+                        );
+                    nearestP /= width /2;
+
 
                     float length = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(preX - x), 2) + Mathf.Pow(Mathf.Abs(preY - y), 2));
                     Vector2 A, B;
