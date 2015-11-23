@@ -62,8 +62,14 @@ public class Handler : MonoBehaviour {
             dataList[stage].millis = timestampEnd - timestampBeg;
             dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart ;
             dataList[stage].count = countEnd;
-            Logging.log("data.txt",
-                    "SUBJECT" + "\t" + stage + "\t" + (countStart - countEnd) + "\t" + countStart +"\t" + dataList[stage].accuracy + "\t" + dataList[stage].millis + "\t" + timeOffPath
+            Logging.upload(
+                    textID.getTextID(),
+                    StartMenu.testState,
+                    countStart,
+                    countEnd,
+                    timestampEnd,
+                    timestampBeg,
+                    timeOffPath
                 );
 
             Debug.Log("Ending");
@@ -94,6 +100,12 @@ public class Handler : MonoBehaviour {
     {
         return dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart;
     }
+
+    public static float getElapsedTime()
+    {
+        return getMillis() - timestampBeg;
+    }
+
 
     public static int getStage()
     {

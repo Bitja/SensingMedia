@@ -106,11 +106,11 @@ public class PathTracer : MonoBehaviour {
                         else
                             timestamp = Handler.getMillis();
                     }
-                    Logging.log("subject" + "SUBJECT" + "session" +  Handler.getStage() + ".txt",
-                            Handler.getMillis() + "\t" + (nearestP <= width/2.0 ? nearestP + "" : "DISTANCE TO OBJECT")
-                        );
-                    nearestP /= width/2;
 
+                    // time, distance, class, x, y
+                    Logging.log(Handler.getElapsedTime() + "\t" + (nearestP <= width/2.0 ? nearestP + "\t" + 0 : "???" + "\t" + 1) + "\t" + x + "\t" + y);
+
+                    nearestP /= width/2;
 
                     float length = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(preX - x), 2) + Mathf.Pow(Mathf.Abs(preY - y), 2));
                     Vector2 A, B;
