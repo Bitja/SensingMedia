@@ -75,7 +75,7 @@ public class Handler : MonoBehaviour {
 			Timer.timerFrozen = true;
 			if(GradiantLamp.lampIsOn==false)
 				GradiantLamp.skammekrog = true;
-			       }
+		}
     }
 
     public static void reset() {
