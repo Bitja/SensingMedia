@@ -20,13 +20,12 @@ public class Handler : MonoBehaviour {
         public long millis;
         public float accuracy;
         public int count;
-        public float timeOf; // tilføjet
     }
 
     public static void prepare() {
 
         if (state == 0) {
-            Audio.audiostate = 5; 
+            Audio.audiostate = 5; // play sound
             PathTracer.toggle(true);
             countStart = PathTracer.countPixels(Color.white); // moved her because: slow in start() in creates a delay! 
             state++;		
@@ -54,7 +53,7 @@ public class Handler : MonoBehaviour {
     public static void end()
     { // smaller circle
         if (state == 2) {
-            Audio.audiostate = 9; 
+            Audio.audiostate = 9; // play sound
             state++; 
             timestampEnd = getMillis();
             countEnd = PathTracer.countPixels(Color.white); // slow function creates a delay! Easy solution DONE: calls function when mouse moves out of each inner circle.
@@ -63,15 +62,20 @@ public class Handler : MonoBehaviour {
             dataList[stage].millis = timestampEnd - timestampBeg;
             dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart ;
             dataList[stage].count = countEnd;
-            dataList[stage].timeOf = timeOffPath; //tilføjet
-            Logging.log("data.txt",
-                    textID.getTextID() + "\t" + StartMenu.testState + "\t" + (countStart - countEnd) + "\t" + countStart +"\t" + ((countStart - countEnd) * 100.0f / countStart) + "\t" + (timestampEnd - timestampBeg) + "\t" + timeOffPath
+            Logging.upload(
+                    textID.getTextID(),
+                    StartMenu.testState,
+                    countStart,
+                    countEnd,
+                    timestampEnd,
+                    timestampBeg,
+                    timeOffPath
                 );
-            
+
             Debug.Log("Ending");
             Debug.Log("Time: " + (dataList[stage].millis / 1000.0f));
             Debug.Log("Accuracy: " + dataList[stage].accuracy);
-            timeDisplay = dataList[stage].timeOf / 1000.0f; // ændret
+            timeDisplay = dataList[stage].millis / 1000.0f;
             PathTracer.displayScore();
 			Infotoggle.showInfoButton();
 			Timer.timerFrozen = true;
@@ -92,14 +96,16 @@ public class Handler : MonoBehaviour {
         return (long)(DateTime.UtcNow - UnixEpoch).TotalMilliseconds;
     }
 
-    public static long getElapsedTime() {
-        return getMillis() - timestampBeg;
-    }
-
     public static float getAccuracy()
     {
         return dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart;
     }
+
+    public static float getElapsedTime()
+    {
+        return getMillis() - timestampBeg;
+    }
+
 
     public static int getStage()
     {

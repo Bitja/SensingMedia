@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class PathTracer : MonoBehaviour {
 
-	public GameObject scoreObject,scoreBox;//timeofObject 
+	public GameObject scoreObject, timeObject,scoreBox;//testing
     public static bool isEnabled = false;
-    public static Text guiScore; //, guiTime;
+    public static Text guiScore, guiTime;
 	public static Image guiScoreBox; 
 	public static GameObject path1, path2, path3, path4, path5, path6, catObj1, catObj2, catObj3, catObj4, catObj5, catObj1alphaObj;
 
@@ -25,7 +25,7 @@ public class PathTracer : MonoBehaviour {
 	
 	void Start() {
         guiScore = scoreObject.GetComponent<Text>();
-        //guiTime = timeofObject.GetComponent<Text>();
+        guiTime = timeObject.GetComponent<Text>();
 		guiScoreBox = scoreBox.GetComponent<Image>();
 		
 		path1 = GameObject.Find ("path1");
@@ -34,8 +34,8 @@ public class PathTracer : MonoBehaviour {
 		path4 = GameObject.Find ("path4");
 		path5 = GameObject.Find ("path5");		
 		path6 = GameObject.Find ("Exit");
-
-        catObj1 = GameObject.Find ("cat1");
+		
+		catObj1 = GameObject.Find ("cat1");
 		catObj2 = GameObject.Find ("cat2");
 		catObj3 = GameObject.Find ("cat3");
 		catObj4 = GameObject.Find ("cat4");
@@ -106,9 +106,10 @@ public class PathTracer : MonoBehaviour {
                         else
                             timestamp = Handler.getMillis();
                     }
-                    Logging.log("subject" + textID.getTextID() + "session" + StartMenu.testState + ".txt",
-                            Handler.getElapsedTime() + "\t" + (nearestP <= width/2.0 ? nearestP + "" : GradiantLamp.getDistance() + "")
-                        );
+
+                    // time, distance, class, x, y
+                    Logging.log(Handler.getElapsedTime() + "\t" + (nearestP <= width/2.0 ? nearestP + "\t" + 0 : "???" + "\t" + 1) + "\t" + x + "\t" + y);
+
                     nearestP /= width/2;
 
                     float length = Mathf.Sqrt(Mathf.Pow(Mathf.Abs(preX - x), 2) + Mathf.Pow(Mathf.Abs(preY - y), 2));
@@ -135,7 +136,7 @@ public class PathTracer : MonoBehaviour {
 	}
 
     public static void displayScore() {
-        //guiTime.enabled = true;
+        guiTime.enabled = true;
         guiScore.enabled = true;
 		guiScoreBox.enabled = true;
 		Debug.Log ("Level : " + currentLevel);
@@ -154,27 +155,26 @@ public class PathTracer : MonoBehaviour {
 
 
 		//Dispay cat heads
-		if (Handler.getAccuracy () >= 0) { // ændret
+		if (Handler.getAccuracy () >= 0) {
             catObj1alphaObj.SetActive(true);
-            if (Handler.getAccuracy() >= 1) {
-                catObj1.SetActive(true);
-                if (Handler.getAccuracy() >= 25) {
-                    catObj2.SetActive(true);
-                    if (Handler.getAccuracy() >= 50) {
-                        catObj3.SetActive(true);
-                        if (Handler.getAccuracy() >= 75) {
-                            catObj4.SetActive(true);
-                            if (Handler.getAccuracy() >= 90) {
-                                catObj5.SetActive(true);
-                            }
-                        }
-                    }
-                }
-            }
+            catObj1.SetActive (true);
+			if (Handler.getAccuracy () >= 20) {
+				catObj2.SetActive (true);
+				if (Handler.getAccuracy () >= 40) {
+					catObj3.SetActive (true);
+					if (Handler.getAccuracy () >= 60) {
+						catObj4.SetActive (true);
+						if (Handler.getAccuracy () >= 80) {
+							catObj5.SetActive (true);
+						}
+					}
+				}
+			}
 		}
 
 		Debug.Log ("score");
-        guiScore.text = "You hit " + (int)Handler.getAccuracy() + "% of the rune, but spend " + (Handler.timeDisplay).ToString("F2") + " seconds outside the path."; // ændret
+        guiScore.text = "You hit " + (int)Handler.getAccuracy() + "% of the rune!";
+        guiTime.text = "Time: " + Handler.timeDisplay + " seconds";
 
         toggle(false);
 		currentLevel ++;
