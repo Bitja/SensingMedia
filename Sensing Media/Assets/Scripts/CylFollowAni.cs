@@ -8,7 +8,7 @@ public class CylFollowAni : MonoBehaviour {
     private GameObject mTut, mStart;
 
     public GameObject objDialog, pathButtonObj, transImage, circles, panel, runeBack, cylFollowAni,
-        widget1, widget2, widget3, widgetR1, widgetR2, widgetR3, mTutR, mStartR;
+        widget1, widget2, widget3, widgetR1, widgetR2, widgetR3, mTutR, mStartR, tutName;
     private Text dialog;
     public static int left = 1;
 	public Image imgBack;
@@ -18,6 +18,7 @@ public class CylFollowAni : MonoBehaviour {
     void Start() {
         mStart = GameObject.Find("CylinderStart");
         mTut = GameObject.Find("CylinderFollow");
+        tutName = GameObject.Find("TutorialName");
         moveR = new Vector3(5.0f, 0.0f, 0.0f);
         dialog = objDialog.GetComponent<Text>();
 		pathButtonObj.SetActive(false);
@@ -30,10 +31,12 @@ public class CylFollowAni : MonoBehaviour {
         widgetR2.SetActive(false);
         widgetR3.SetActive(false);
         imgBack.enabled = false;
+        //tutName.SetActive(false);
 
         if (left == 1) { // a quick fix for a null reference error, I couldnt figure out.
             PathTracer.guiScore.enabled = false;
-            PathTracer.guiTime.enabled = false;
+            //PathTracer.guiTime.enabled = false;
+
         }
 
         runeBack.SetActive(false);
@@ -44,9 +47,10 @@ public class CylFollowAni : MonoBehaviour {
     public void SetToRight() {
         left = 0;
         Debug.Log("func call " +left);
+        tutName.SetActive(false);
     }
 
-    public void restartTutorial() {
+/*    public void restartTutorial() {
         if (tutorialState == 2 && left ==1) {
             mTut.transform.position -= moveR;
             Debug.Log("moveL1");
@@ -67,6 +71,7 @@ public class CylFollowAni : MonoBehaviour {
         tutorialState = 0;
         dialog.enabled = true;
         dialog.text = "To unlock the rune, first I have to <b>place my magic lens</b> on the light. \n Like this!";
+        tutName.SetActive(false);
         //mStart.SetActive(true);
         //mTut.SetActive(true);
         if (left == 0) {
@@ -89,6 +94,7 @@ public class CylFollowAni : MonoBehaviour {
         runeBack.SetActive(true);
         panel.SetActive(true);
     }
+    */
 
     public void playAnimation() {
         Debug.Log(left);
@@ -201,6 +207,7 @@ public class CylFollowAni : MonoBehaviour {
     }
 
     public void pathState() {
+        //tutName.SetActive(true);
         //dialog2.text = "Okay this is the real deal! I have to draw this rune starting from the left circle to the right. \n The light will help me stay on track.";
         imgBack.enabled = true;
         transImage.SetActive(true);

@@ -8,11 +8,14 @@ public class NewLevel : MonoBehaviour {
     private static Renderer rend;
     public static Texture2D clone;
 
-	public static GameObject fadePlane1, fadePlane2, fadePlane3, fadePlane4, fadePlane5, cubeobjTut, cubeobjPath1, cubeobjPath2, cubeobjPath3, cubeobjPath4, cubeobjPath5, popUp;
+	public static GameObject fadePlane1, fadePlane2, fadePlane3, fadePlane4, fadePlane5, cubeobjTut, cubeobjPath1, cubeobjPath2, cubeobjPath3, cubeobjPath4, cubeobjPath5, popUp, popupPaper;
 	public static Image imageFadePlane1, imageFadePlane2, imageFadePlane3, imageFadePlane4, imageFadePlane5;
 
     void Start (){
-		rend = GetComponent<Renderer>();
+        popupPaper = GameObject.Find("popUpPaper"); // new
+        popupPaper.SetActive(false); // new
+
+        rend = GetComponent<Renderer>();
 		fadePlane1 = GameObject.Find ("ImagePlaneFade1");
 		fadePlane2 = GameObject.Find ("ImagePlaneFade2");
 		fadePlane3 = GameObject.Find ("ImagePlaneFade3");
@@ -59,13 +62,13 @@ public class NewLevel : MonoBehaviour {
 		GetComponent<Renderer>().material.mainTexture = clone;
 		PathTracer.toggle(false);
 		Handler.reset();
-		PathTracer.guiTime.enabled = false; 
+		//PathTracer.guiTime.enabled = false; 
 		PathTracer.guiScore.enabled = false; 
 	}
 
     public void ChangeToScene(int sceneToChangeTo){
 
-        PathTracer.guiTime.enabled = false;
+        //PathTracer.guiTime.enabled = false;
         PathTracer.guiScore.enabled = false;
 		PathTracer.guiScoreBox.enabled = false;
 		Infotoggle.infoPanel.enabled = false;

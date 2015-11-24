@@ -4,13 +4,15 @@ using System.Collections;
 
 public class textID : MonoBehaviour {
 
-    private static Text txtID;
-    private static GameObject txtIDobj;
+    private static string id;
 
-    public static void getTextID() {
-        txtIDobj = GameObject.Find("TextID");
-        txtID = txtIDobj.GetComponent<Text>();
-        txtID.text = "";
-        //Debug.Log(txtID.text);
+    public static string getTextID() {
+        return id;
+    }
+
+    public void setTextID() {
+        GameObject txtIDobj = GameObject.Find("TextID");
+        Text txtID = txtIDobj.GetComponent<Text>();
+        id = txtID.text;
     }
 }

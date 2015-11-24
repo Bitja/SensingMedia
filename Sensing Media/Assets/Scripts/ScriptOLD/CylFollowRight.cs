@@ -26,7 +26,7 @@ public class CylFollowRight : MonoBehaviour {
         widget3.SetActive(false);
         imgBack.enabled = false;
         PathTracer.guiScore.enabled = false;
-        PathTracer.guiTime.enabled = false;
+        //PathTracer.guiTime.enabled = false;
         runeBack.SetActive(false);
         panel.SetActive(false);
         cylFollowAni.SetActive(false);

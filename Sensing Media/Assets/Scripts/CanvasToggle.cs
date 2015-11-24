@@ -13,7 +13,7 @@ public class CanvasToggle : MonoBehaviour {
     void Start() {
         diaText.SetActive(false);
         //diaPanel.SetActive(false);
-        PathTracer.guiTime.enabled = false; 
+        //PathTracer.guiTime.enabled = false; 
         PathTracer.guiScore.enabled = false;       
         //restartButton.SetActive(false);
     }

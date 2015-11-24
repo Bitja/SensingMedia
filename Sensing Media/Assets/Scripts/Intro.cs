@@ -38,7 +38,7 @@ public class Intro : MonoBehaviour {
 			dialog.text = "This is the grand magical forest. The secrets of the rune magic is hidden inside, " +
 				"and only the foolish would ever think to venture there.";
 		} else if (currentStory == 1) {
-			dialog.text = "Which is why I am going in there! Together with my trusted companion Sir Whiskers, " +
+			dialog.text = "Which is why I am going in there! Together with my trusted companion, Sir Whiskers, " +
 				"I shall learn the secrets of the runes!";
 
 		} else if (currentStory == 2) {

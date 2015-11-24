@@ -26,6 +26,7 @@ public class Circle : MonoBehaviour {
                  || col.gameObject.name == "CylinderMouse4" && id == 2
                  || col.gameObject.name == "CylinderMouseTut" && id == 2) { // moved here to cheat the delay! BUT: I can make it draw a bit more in the delay, just a tiny bit.
             Handler.end();
+            NewLevel.popupPaper.SetActive(true);
         }
     }
     void OnCollisionExit(Collision col) {//OnTouchExit() {

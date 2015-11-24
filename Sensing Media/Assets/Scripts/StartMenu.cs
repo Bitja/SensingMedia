@@ -28,6 +28,11 @@ public class StartMenu : MonoBehaviour {
 			testState = 5;
 
 		}
-	}	
+        else if (sceneToStateNr == 5) {
+            Application.LoadLevel("TemplateBiancaWorksMette");
+            testState = 6;
+
+        }
+    }	
 }
 	

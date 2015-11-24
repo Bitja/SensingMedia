@@ -15,7 +15,7 @@ public class GradiantLamp : MonoBehaviour {
 
 	private float distanceToFarthestPoint = 0.15F;//increase this to make the lerp between yellow and red larger
  
-	private float closestDistance = 200;
+	private static float closestDistance;
 	private float[] unitDistances = new float[30];//remember to change this to number of squares
 	float distance;
     public GameObject mouse;
@@ -49,7 +49,9 @@ public class GradiantLamp : MonoBehaviour {
 		}
 	}
 
-
+    public static float getDistance() {
+        return closestDistance;
+    }
 
     void Start() {
       	rend = GetComponentInChildren<Renderer>();
@@ -61,8 +63,9 @@ public class GradiantLamp : MonoBehaviour {
     void Update() {
 		Color alphaColor = rend.material.color;
 		rend.enabled = false;
+        closestDistance = float.MaxValue;
 
-		if (skammekrog == false) {
+        if (skammekrog == false) {
 			if (isOn && PathTracer.nearestP < 1) {
 
 				//Debug.Log ("nearest.P = "+PathTracer.nearestP);
@@ -78,16 +81,14 @@ public class GradiantLamp : MonoBehaviour {
 					}
 					//Debug.Log("ClosetDistance= "+closestDistance);
 				}
-				closestDistance-=7.0f;
 				//Debug.Log("ClosetDistance= "+closestDistance);
-				newLerb = (closestDistance-0.32f)/distanceToFarthestPoint;//procentregler ftw!
+				newLerb = (closestDistance-7.32f)/distanceToFarthestPoint;//procentregler ftw!
 				//Debug.Log("newLerb = "+newLerb);
 				rend.enabled = true;
 				rend.material.color = Color.Lerp (colorMiddle2, colorEnd, newLerb);
-				closestDistance = 200;
 			}
 		} 
-		else if (skammekrog == true) {
+		else {
 			alphaColor.a = 0.0f;//set alpha to 0
 			if (isOn && PathTracer.nearestP >= 1) {
 				for (int i = 0; i < distanceUnits.Count; i++) {
@@ -99,10 +100,7 @@ public class GradiantLamp : MonoBehaviour {
 						//Debug.Log (closestDistance);
 					}
 				}
-				closestDistance-=7.0f;
-				mirrorLerb = (closestDistance-0.32f)/distanceToFarthestPoint;
-				
-				closestDistance = 200;
+				mirrorLerb = (closestDistance-7.32f)/distanceToFarthestPoint;
 			}
 		}
 
