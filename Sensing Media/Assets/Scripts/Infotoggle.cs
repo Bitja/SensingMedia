@@ -6,7 +6,6 @@ public class Infotoggle : MonoBehaviour {
 
 	public GameObject infoTextObject, infoPanelObject, infoTextlvl1Object;
     public static GameObject infoButton, infoImage1, infoImage2, infoImage3, infoImage4, infoImage5, levelNameObj;
-    public GameObject cube1, cube2, cube3, cube4, cube5;
 	public static Image infoPanel;
 	public static Text infoText, infoTextlvl1, lvlName;
 	private int infoNr;
@@ -28,18 +27,6 @@ public class Infotoggle : MonoBehaviour {
 		infoImage3 = GameObject.Find ("InfoImage3");
 		infoImage4 = GameObject.Find ("InfoImage4");
 		infoImage5 = GameObject.Find ("InfoImage5");
-
- /*       cube1 = GameObject.Find("cube (1)");
-        cube2 = GameObject.Find("cube (2)");
-        cube3 = GameObject.Find("cube (3)");
-        cube4 = GameObject.Find("cube (4)");
-        cube5 = GameObject.Find("cube (5)");
-        */
-        cube1.SetActive(false);
-        cube2.SetActive(false);
-        cube3.SetActive(false);
-        cube4.SetActive(false);
-        cube5.SetActive(false);
 
         infoImage1.SetActive (false);
 		infoImage2.SetActive (false);
@@ -75,72 +62,46 @@ public class Infotoggle : MonoBehaviour {
 			infoText.text = "That was it for the test. Thank you for your participation.";
 		}
 		else if(PathTracer.currentLevel <= 5 && PathTracer.currentLevel >= 1){
-			
-			if(infoNr >5)
+            if (infoNr >5)
 				infoNr = 1;
 
 			if (infoNr == 1) {
-				infoText.text = "<b>LENS</b> \nFor your next task, use the magic lens.";
+				infoText.text = "<color=black>LENS </color>\nFor your next task, use the magic lens.";
                 lvlName.text = "LENS";
                 infoTextlvl1.text = "Keep your eyes open for the line, it will disappear!";
                 infoImage1.SetActive (true);
-                cube1.SetActive(false);
-                cube2.SetActive(false);
-                cube3.SetActive(false);
-                cube4.SetActive(false);
-                cube5.SetActive(false);
                 infoNr++;
 				Debug.Log ("2: infoNr = " + infoNr);
 
 			}
 			else if (infoNr == 2) {
 				infoTextlvl1.enabled = false;
-				infoText.text = "<b>FINGER OFFSET</b> \nFor your next task, the light feedback will have an offset from you finger.";
+				infoText.text = "<color=black>FINGER OFFSET</color> \nFor your next task, the light feedback will have an offset from you finger.";
                 lvlName.text = "FINGER OFFSET";
                 infoImage2.SetActive (true);
-                cube1.SetActive(false);
-                cube2.SetActive(false);
-                cube3.SetActive(false);
-                cube4.SetActive(false);
-                cube5.SetActive(false);
                 infoNr++;
 				Debug.Log ("3: infoNr = " + infoNr);
 
 			}
 			else if (infoNr == 3) {
 				infoTextlvl1.enabled = false;
-				infoText.text = "<b>GEM CORNER</b> \nFor your next task, use the magic gem with the light feedback in the corner.";
+				infoText.text = "<color=black>GEM CORNER</color> \nFor your next task, use the magic gem with the light feedback in the corner.";
                 lvlName.text = "GEM CORNER";
                 infoImage3.SetActive (true);
-                cube1.SetActive(true);
-                cube2.SetActive(true);
-                cube3.SetActive(true);
-                cube4.SetActive(true);
-                cube5.SetActive(true);
                 infoNr++;
 			}		
 			else if (infoNr == 4) {
 				infoTextlvl1.enabled = false;
-				infoText.text = "<b>FINGER CORNER</b> \nFor your next task, use your finger with the light feedback in the corner.";
+				infoText.text = "<color=black>FINGER CORNER</color> \nFor your next task, use your finger with the light feedback in the corner.";
                 lvlName.text = "FINGER CORNER";
                 infoImage4.SetActive (true);
-                cube1.SetActive(true);
-                cube2.SetActive(true);
-                cube3.SetActive(true);
-                cube4.SetActive(true);
-                cube5.SetActive(true);
                 infoNr++;
 			}
 			else if (infoNr == 5) {
 				infoTextlvl1.enabled = false;
-				infoText.text = "<b>GEM OFFSET</b> \nFor your next task, the light feedback will have an offset from the magic gem.";
+				infoText.text = "<color=black>GEM OFFSET</color> \nFor your next task, the light feedback will have an offset from the magic gem.";
                 lvlName.text = "GEM OFFSET";
                 infoImage5.SetActive (true);
-                cube1.SetActive(false);
-                cube2.SetActive(false);
-                cube3.SetActive(false);
-                cube4.SetActive(false);
-                cube5.SetActive(false);
                 infoNr++;
 			}
 

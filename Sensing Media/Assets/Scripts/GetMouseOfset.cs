@@ -13,11 +13,11 @@ public class GetMouseOfset : MonoBehaviour {
 		if (offsetOn == false) {
 			offsetOn = true;
 			if(RightORLeft.isRightHand == true){
-				mouseOffset = new Vector3(-100.0f, 0.0f, 0.0f); // ændre offset?
+				mouseOffset = new Vector3(-150.0f, 0.0f, 0.0f); // ændre offset?
 
             }
 			else if(RightORLeft.isRightHand == false){
-				mouseOffset = new Vector3(100.0f, 0.0f, 0.0f); // ændre offset?
+				mouseOffset = new Vector3(150.0f, 0.0f, 0.0f); // ændre offset?
 			}
 		} 
 		else
