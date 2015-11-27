@@ -157,24 +157,25 @@ public class PathTracer : MonoBehaviour {
 		//Dispay cat heads
 		if (Handler.getAccuracy () >= 0) {
             catObj1alphaObj.SetActive(true);
-            catObj1.SetActive (true);
-			if (Handler.getAccuracy () >= 20) {
-				catObj2.SetActive (true);
-				if (Handler.getAccuracy () >= 40) {
-					catObj3.SetActive (true);
-					if (Handler.getAccuracy () >= 60) {
-						catObj4.SetActive (true);
-						if (Handler.getAccuracy () >= 80) {
-							catObj5.SetActive (true);
-						}
-					}
-				}
-			}
+            if (Handler.getAccuracy() >= 1) {
+                catObj1.SetActive(true);
+                if (Handler.getAccuracy() >= 25) {
+                    catObj2.SetActive(true);
+                    if (Handler.getAccuracy() >= 50) {
+                        catObj3.SetActive(true);
+                        if (Handler.getAccuracy() >= 75) {
+                            catObj4.SetActive(true);
+                            if (Handler.getAccuracy() >= 90) {
+                                catObj5.SetActive(true);
+                            }
+                        }
+                    }
+                }
+            }
 		}
 
 		Debug.Log ("score");
-        guiScore.text = "You hit " + (int)Handler.getAccuracy() + "% of the rune!";
-        guiTime.text = "Time: " + Handler.timeDisplay + " seconds";
+        guiScore.text = "You hit " + (int)Handler.getAccuracy() + "% of the rune, but spend " + (Handler.timeDisplay).ToString("F2") + " seconds outside the line.";
 
         toggle(false);
 		currentLevel ++;

@@ -18,7 +18,7 @@ public class CylFollowAni : MonoBehaviour {
     void Start() {
         mStart = GameObject.Find("CylinderStart");
         mTut = GameObject.Find("CylinderFollow");
-        tutName = GameObject.Find("TutorialName");
+        //tutName = GameObject.Find("LevelName (1)");
         moveR = new Vector3(5.0f, 0.0f, 0.0f);
         dialog = objDialog.GetComponent<Text>();
 		pathButtonObj.SetActive(false);
@@ -31,7 +31,7 @@ public class CylFollowAni : MonoBehaviour {
         widgetR2.SetActive(false);
         widgetR3.SetActive(false);
         imgBack.enabled = false;
-        //tutName.SetActive(false);
+        tutName.SetActive(false);
 
         if (left == 1) { // a quick fix for a null reference error, I couldnt figure out.
             PathTracer.guiScore.enabled = false;
@@ -50,55 +50,9 @@ public class CylFollowAni : MonoBehaviour {
         tutName.SetActive(false);
     }
 
-/*    public void restartTutorial() {
-        if (tutorialState == 2 && left ==1) {
-            mTut.transform.position -= moveR;
-            Debug.Log("moveL1");
-        }
-        else if (tutorialState >= 3 && left == 1) {
-            mTut.transform.position -= moveR * 2;
-            mStart.transform.position -= moveR;
-            Debug.Log("moveL1");
-        }
-        if (tutorialState == 2 && left == 0) {
-            mTutR.transform.position += moveR;
-        }
-        else if (tutorialState >= 3 && left == 0) {
-            mTutR.transform.position += moveR * 2;
-            mStartR.transform.position += moveR;
-        }
-        // the following order matters: Start() at the button with widget1 after!
-        tutorialState = 0;
-        dialog.enabled = true;
-        dialog.text = "To unlock the rune, first I have to <b>place my magic lens</b> on the light. \n Like this!";
-        tutName.SetActive(false);
-        //mStart.SetActive(true);
-        //mTut.SetActive(true);
-        if (left == 0) {
-            mStartR.SetActive(true);
-            mTutR.SetActive(true);
-        }
-        else if (left == 1) {
-            mTut.SetActive(true);
-            mStart.SetActive(true);
-        }
-
-        Start();
-        //widget1.SetActive(true);
-        if (left == 1) {
-            widget1.SetActive(true);
-        }
-        else if (left == 0) {
-            widgetR1.SetActive(true);
-        }
-        runeBack.SetActive(true);
-        panel.SetActive(true);
-    }
-    */
-
     public void playAnimation() {
         Debug.Log(left);
-        dialog.text = "To unlock the rune, first I have to <b>place my magic lens</b> on the light. \n Like this!";
+        dialog.text = "To unlock the rune, first I have to <color=black>place my magic lens</color> on the light. \n Like this!";
         if (left == 1) {
             mStartR.SetActive(false);
             mTutR.SetActive(false);
@@ -176,7 +130,7 @@ public class CylFollowAni : MonoBehaviour {
     void OnCollisionExit(Collision col) {
         if (col.gameObject.name == "CylinderMouseTut") {
             if (tutorialState == 1) {
-				dialog.text = "Then I have to draw the rune, by <b>dragging the magic lens</b> across the stone.";
+				dialog.text = "Then I have to draw the rune, by <color=black>dragging the magic lens</color> across the stone.";
                 //widget2.SetActive(true);
                 if (left == 1) {
                     widget2.SetActive(true);
@@ -187,7 +141,7 @@ public class CylFollowAni : MonoBehaviour {
                 tutorialState++;
             }
             if (tutorialState == 3) {
-                dialog.text = "Look how the <b>light changes</b>! It's showing me the way.";
+                dialog.text = "Look how the <color=black>light changes</color>! It's showing me the way.";
                 //widget3.SetActive(true);
                 //mStart.SetActive(true);
                 // mStart.transform.position += moveR;
@@ -218,5 +172,7 @@ public class CylFollowAni : MonoBehaviour {
         imgBack.CrossFadeAlpha(0.0f, 2.0f, true);
         tutorialState++;
         Timer.timerFrozen = true;
+        tutName.SetActive(true);
+
     }
 }

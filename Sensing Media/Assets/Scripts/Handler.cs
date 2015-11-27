@@ -75,7 +75,8 @@ public class Handler : MonoBehaviour {
             Debug.Log("Ending");
             Debug.Log("Time: " + (dataList[stage].millis / 1000.0f));
             Debug.Log("Accuracy: " + dataList[stage].accuracy);
-            timeDisplay = dataList[stage].millis / 1000.0f;
+           // timeDisplay = dataList[stage].millis / 1000.0f;
+            timeDisplay = timeOffPath / 1000.0f;
             PathTracer.displayScore();
 			Infotoggle.showInfoButton();
 			Timer.timerFrozen = true;
