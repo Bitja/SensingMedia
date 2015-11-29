@@ -6,12 +6,10 @@ public class GetMouseOfset : MonoBehaviour {
     private Vector3 offsetmousePosition;
     public float moveSpeed = 1.0f;
     private Vector3 mouseOffset;
-	public bool offsetOn = false;
+	public static bool offsetOn = false;
 
 
 	public void toggleOffset(){
-		if (offsetOn == false) {
-			offsetOn = true;
 			if(RightORLeft.isRightHand == true){
 				mouseOffset = new Vector3(-150.0f, 0.0f, 0.0f); // ændre offset?
 
@@ -20,9 +18,8 @@ public class GetMouseOfset : MonoBehaviour {
 				mouseOffset = new Vector3(150.0f, 0.0f, 0.0f); // ændre offset?
 			}
 		} 
-		else
-			offsetOn = false;
-	}
+		
+	
 
     void Update() {
 		//Debug.Log (offsetOn);

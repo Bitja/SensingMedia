@@ -11,10 +11,10 @@ public class RightORLeft : MonoBehaviour {
 	
 	public void isRight(){
 		isRightHand = true;
-		Debug.Log ("Is Right is " + isRightHand);
+		//Debug.Log ("Is Right is " + isRightHand);
 	}	
 	public void isLeft(){
 		isRightHand = false;		
-		Debug.Log ("Is Right is " + isRightHand);
+		//Debug.Log ("Is Right is " + isRightHand);
 	}
 }

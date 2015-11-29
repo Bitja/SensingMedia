@@ -78,7 +78,7 @@ public class Handler : MonoBehaviour {
            // timeDisplay = dataList[stage].millis / 1000.0f;
             timeDisplay = timeOffPath / 1000.0f;
             PathTracer.displayScore();
-			Infotoggle.showInfoButton();
+			ChangePath.showInfoButton();
 			Timer.timerFrozen = true;
 			if(GradiantLamp.lampIsOn==false)
 				GradiantLamp.skammekrog = true;

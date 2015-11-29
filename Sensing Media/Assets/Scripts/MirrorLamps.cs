@@ -7,7 +7,7 @@ public class MirrorLamps : MonoBehaviour {
 	public GameObject lamp;
 	public Color colorStart, colorMiddle, colorMiddle2, colorEnd;
 	private Renderer rend;
-	public bool isOn = false;
+	public static bool isOn = false;
 
 
 	void Start () {

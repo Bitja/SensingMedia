@@ -46,12 +46,12 @@ public class CylFollowAni : MonoBehaviour {
 
     public void SetToRight() {
         left = 0;
-        Debug.Log("func call " +left);
+       // Debug.Log("func call " +left);
         tutName.SetActive(false);
     }
 
     public void playAnimation() {
-        Debug.Log(left);
+        //Debug.Log(left);
         dialog.text = "To unlock the rune, first I have to <color=black>place my magic lens</color> on the light. \n Like this!";
         if (left == 1) {
             mStartR.SetActive(false);

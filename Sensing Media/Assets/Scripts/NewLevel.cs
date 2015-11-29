@@ -71,9 +71,9 @@ public class NewLevel : MonoBehaviour {
         //PathTracer.guiTime.enabled = false;
         PathTracer.guiScore.enabled = false;
 		PathTracer.guiScoreBox.enabled = false;
-		Infotoggle.infoPanel.enabled = false;
-		Infotoggle.infoText.enabled = false;
-        Infotoggle.infoTextlvl1.enabled = false;
+		ChangePath.infoPanel.enabled = false;
+        ChangePath.infoText.enabled = false;
+        ChangePath.infoTextlvl1.enabled = false;
 
         PathTracer.path1.SetActive (false);
 		PathTracer.path2.SetActive (false);
@@ -89,11 +89,11 @@ public class NewLevel : MonoBehaviour {
 		PathTracer.catObj5.SetActive (false);
         PathTracer.catObj1alphaObj.SetActive(false);
 
-        Infotoggle.infoImage1.SetActive (false);
-		Infotoggle.infoImage2.SetActive (false);
-		Infotoggle.infoImage3.SetActive (false);
-		Infotoggle.infoImage4.SetActive (false);
-		Infotoggle.infoImage5.SetActive (false);
+        ChangePath.infoImage1.SetActive (false);
+        ChangePath.infoImage2.SetActive (false);
+        ChangePath.infoImage3.SetActive (false);
+        ChangePath.infoImage4.SetActive (false);
+        ChangePath.infoImage5.SetActive (false);
 
 		imageFadePlane1.enabled = false;
 		imageFadePlane2.enabled = false;

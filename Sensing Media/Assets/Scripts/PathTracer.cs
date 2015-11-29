@@ -33,7 +33,7 @@ public class PathTracer : MonoBehaviour {
 		path3 = GameObject.Find ("path3");
 		path4 = GameObject.Find ("path4");
 		path5 = GameObject.Find ("path5");		
-		path6 = GameObject.Find ("Exit");
+		path6 = GameObject.Find ("ExitButton");
 		
 		catObj1 = GameObject.Find ("cat1");
 		catObj2 = GameObject.Find ("cat2");
@@ -174,7 +174,7 @@ public class PathTracer : MonoBehaviour {
             }
 		}
 
-		Debug.Log ("score");
+		//Debug.Log ("score");
         guiScore.text = "You hit " + (int)Handler.getAccuracy() + "% of the rune, but spend " + (Handler.timeDisplay).ToString("F2") + " seconds outside the line.";
 
         toggle(false);
