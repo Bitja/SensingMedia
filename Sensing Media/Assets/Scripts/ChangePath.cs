@@ -71,7 +71,8 @@ public class ChangePath : MonoBehaviour {
 
 
     public void changePathWithTeststate(int ButtonNr) {
-        switch (StartMenu.testState) {
+        Debug.Log("This is the state number "+((textID.stateNr % 10)+1));
+        switch ((textID.stateNr%10)+1) {         
             case 1:
                // Debug.Log("Case 1");
                 switch (ButtonNr) {
@@ -82,25 +83,25 @@ public class ChangePath : MonoBehaviour {
                         pathPattern();
                         break;
                     case 2:
-                        typeOfPath = 3;
+                        typeOfPath = 2;
                         showInfo();
                         pathPattern();
                         break;
                     case 3:
                         //Button 3
-                        typeOfPath = 2;
+                        typeOfPath = 5;
                         showInfo();
                         pathPattern();
                         break;
                     case 4:
                         //Button 4
-                        typeOfPath = 4;
+                        typeOfPath = 3;
                         showInfo();
                         pathPattern();
                         break;
                     case 5:
                         //Button 5
-                        typeOfPath = 5;
+                        typeOfPath = 4;
                         showInfo();
                         pathPattern();
                         break;
@@ -120,30 +121,30 @@ public class ChangePath : MonoBehaviour {
                 {
                     case 1:
                         //Button 1
-                        typeOfPath = 1;
+                        typeOfPath = 2;
                         showInfo();
                         pathPattern();
                         break;
                     case 2:
-                        typeOfPath = 4;
+                        typeOfPath = 3;
                         showInfo();
                         pathPattern();
                         break;
                     case 3:
                         //Button 3
-                        typeOfPath = 2;
+                        typeOfPath = 1;
                         showInfo();
                         pathPattern();
                         break;
                     case 4:
                         //Button 4
-                        typeOfPath = 5;
+                        typeOfPath = 4;
                         showInfo();
                         pathPattern();
                         break;
                     case 5:
                         //Button 5
-                        typeOfPath = 3;
+                        typeOfPath = 5;
                         showInfo();
                         pathPattern();
                         break;
@@ -163,30 +164,30 @@ public class ChangePath : MonoBehaviour {
                 {
                     case 1:
                         //Button 1
-                        typeOfPath = 2;
+                        typeOfPath = 3;
                         showInfo();
                         pathPattern();
                         break;
                     case 2:
-                        typeOfPath = 3;
+                        typeOfPath = 4;
                         showInfo();
                         pathPattern();
                         break;
                     case 3:
                         //Button 3
-                        typeOfPath = 4;
+                        typeOfPath = 2;
                         showInfo();
                         pathPattern();
                         break;
                     case 4:
                         //Button 4
-                        typeOfPath = 1;
+                        typeOfPath = 5;
                         showInfo();
                         pathPattern();
                         break;
                     case 5:
                         //Button 5
-                        typeOfPath = 5;
+                        typeOfPath = 1;
                         showInfo();
                         pathPattern();
                         break;
@@ -206,7 +207,7 @@ public class ChangePath : MonoBehaviour {
                 {
                     case 1:
                         //Button 1
-                        typeOfPath = 2;
+                        typeOfPath = 4;
                         showInfo();
                         pathPattern();
                         break;
@@ -217,19 +218,19 @@ public class ChangePath : MonoBehaviour {
                         break;
                     case 3:
                         //Button 3
-                        typeOfPath = 4;
+                        typeOfPath = 3;
                         showInfo();
                         pathPattern();
                         break;
                     case 4:
                         //Button 4
-                        typeOfPath = 3;
+                        typeOfPath = 1;
                         showInfo();
                         pathPattern();
                         break;
                     case 5:
                         //Button 5
-                        typeOfPath = 1;
+                        typeOfPath = 2;
                         showInfo();
                         pathPattern();
                         break;
@@ -250,18 +251,18 @@ public class ChangePath : MonoBehaviour {
                 {
                     case 1:
                         //Button 1
-                        typeOfPath = 3;
+                        typeOfPath = 5;
                         showInfo();
                         pathPattern();
                         break;
                     case 2:
-                        typeOfPath = 5;
+                        typeOfPath = 1;
                         showInfo();
                         pathPattern();
                         break;
                     case 3:
                         //Button 3
-                        typeOfPath = 1;
+                        typeOfPath = 4;
                         showInfo();
                         pathPattern();
                         break;
@@ -273,7 +274,7 @@ public class ChangePath : MonoBehaviour {
                         break;
                     case 5:
                         //Button 5
-                        typeOfPath = 4;
+                        typeOfPath = 3;
                         showInfo();
                         pathPattern();
                         break;
@@ -294,30 +295,30 @@ public class ChangePath : MonoBehaviour {
                 {
                     case 1:
                         //Button 1
-                        typeOfPath = 3;
+                        typeOfPath = 4;
                         showInfo();
                         pathPattern();
                         break;
                     case 2:
-                        typeOfPath = 1;
+                        typeOfPath = 3;
                         showInfo();
                         pathPattern();
                         break;
                     case 3:
                         //Button 3
-                        typeOfPath = 2;
+                        typeOfPath = 5;
                         showInfo();
                         pathPattern();
                         break;
                     case 4:
                         //Button 4
-                        typeOfPath = 4;
+                        typeOfPath = 2;
                         showInfo();
                         pathPattern();
                         break;
                     case 5:
                         //Button 5
-                        typeOfPath = 5;
+                        typeOfPath = 1;
                         showInfo();
                         pathPattern();
                         break;
@@ -337,30 +338,30 @@ public class ChangePath : MonoBehaviour {
                 {
                     case 1:
                         //Button 1
-                        typeOfPath = 4;
+                        typeOfPath = 5;
                         showInfo();
                         pathPattern();
                         break;
                     case 2:
-                        typeOfPath = 3;
+                        typeOfPath = 4;
                         showInfo();
                         pathPattern();
                         break;
                     case 3:
                         //Button 3
-                        typeOfPath = 2;
+                        typeOfPath = 1;
                         showInfo();
                         pathPattern();
                         break;
                     case 4:
                         //Button 4
-                        typeOfPath = 5;
+                        typeOfPath = 3;
                         showInfo();
                         pathPattern();
                         break;
                     case 5:
                         //Button 5
-                        typeOfPath = 1;
+                        typeOfPath = 2;
                         showInfo();
                         pathPattern();
                         break;
@@ -381,18 +382,18 @@ public class ChangePath : MonoBehaviour {
                 {
                     case 1:
                         //Button 1
-                        typeOfPath = 5;
+                        typeOfPath = 1;
                         showInfo();
                         pathPattern();
                         break;
                     case 2:
-                        typeOfPath = 2;
+                        typeOfPath = 5;
                         showInfo();
                         pathPattern();
                         break;
                     case 3:
                         //Button 3
-                        typeOfPath = 3;
+                        typeOfPath = 2;
                         showInfo();
                         pathPattern();
                         break;
@@ -404,7 +405,7 @@ public class ChangePath : MonoBehaviour {
                         break;
                     case 5:
                         //Button 5
-                        typeOfPath = 1;
+                        typeOfPath = 3;
                         showInfo();
                         pathPattern();
                         break;
@@ -417,6 +418,97 @@ public class ChangePath : MonoBehaviour {
                 }
 
                 break;
+
+
+
+            case 9:
+                // Debug.Log("Case 1");
+                switch (ButtonNr)
+                {
+                    case 1:
+                        //Button 1
+                        typeOfPath = 2;
+                        showInfo();
+                        pathPattern();
+                        break;
+                    case 2:
+                        typeOfPath = 1;
+                        showInfo();
+                        pathPattern();
+                        break;
+                    case 3:
+                        //Button 3
+                        typeOfPath = 3;
+                        showInfo();
+                        pathPattern();
+                        break;
+                    case 4:
+                        //Button 4
+                        typeOfPath = 5;
+                        showInfo();
+                        pathPattern();
+                        break;
+                    case 5:
+                        //Button 5
+                        typeOfPath = 4;
+                        showInfo();
+                        pathPattern();
+                        break;
+                    case 6:
+                        //Button 5
+                        typeOfPath = 6;
+                        showInfo();
+                        infoButton6.SetActive(false);
+                        break;
+                }
+
+                break;
+
+
+            case 10:
+                // Debug.Log("Case 1");
+                switch (ButtonNr)
+                {
+                    case 1:
+                        //Button 1
+                        typeOfPath = 3;
+                        showInfo();
+                        pathPattern();
+                        break;
+                    case 2:
+                        typeOfPath = 2;
+                        showInfo();
+                        pathPattern();
+                        break;
+                    case 3:
+                        //Button 3
+                        typeOfPath = 4;
+                        showInfo();
+                        pathPattern();
+                        break;
+                    case 4:
+                        //Button 4
+                        typeOfPath = 1;
+                        showInfo();
+                        pathPattern();
+                        break;
+                    case 5:
+                        //Button 5
+                        typeOfPath = 5;
+                        showInfo();
+                        pathPattern();
+                        break;
+                    case 6:
+                        //Button 5
+                        typeOfPath = 6;
+                        showInfo();
+                        infoButton6.SetActive(false);
+                        break;
+                }
+
+                break;
+
+
         }
     
     }
