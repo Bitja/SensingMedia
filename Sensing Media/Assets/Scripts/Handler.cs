@@ -7,7 +7,7 @@ public class Handler : MonoBehaviour {
 
     private static int stage = 0;
     private static int state = 0;
-    private static long timestampBeg = 0;
+    private static long timestampBeg = -1;
     public static long timestampEnd = 0;
     public static long timeOffPath = 0;
     private static int countStart = 1;
@@ -23,7 +23,7 @@ public class Handler : MonoBehaviour {
     }
 
     public static void prepare() {
-        new Logging();
+        Logging.getCurrent().clear();
         if (state == 0) {
             Audio.audiostate = 5; // play sound
             PathTracer.toggle(true);
@@ -62,14 +62,14 @@ public class Handler : MonoBehaviour {
             dataList[stage].millis = timestampEnd - timestampBeg;
             dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart ;
             dataList[stage].count = countEnd;
-            Logging.getCurrent().SaveToMySQL(
+            Logging.getCurrent().upload(
                     textID.getTextID(),
-                    StartMenu.testState,
+                    PathTracer.currentLevel,
+                    Mathf.Abs(countEnd- countStart),
                     countStart,
-                    countEnd,
-                    timestampEnd,
-                    timestampBeg,
-                    timeOffPath
+                    timestampEnd - timestampBeg,
+                    timeOffPath,
+                    RightORLeft.isRightHand
                 );
 
             Debug.Log("Ending");
@@ -82,7 +82,8 @@ public class Handler : MonoBehaviour {
 			Timer.timerFrozen = true;
 			if(GradiantLamp.lampIsOn==false)
 				GradiantLamp.skammekrog = true;
-		}
+            timestampBeg = -1;
+        }
     }
 
     public static void reset() {
@@ -104,7 +105,7 @@ public class Handler : MonoBehaviour {
 
     public static float getElapsedTime()
     {
-        return getMillis() - timestampBeg;
+        return (timestampBeg < 0 ? timestampBeg : getMillis() - timestampBeg);
     }
 
 

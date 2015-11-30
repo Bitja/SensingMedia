@@ -19,7 +19,7 @@ public class GradiantLamp : MonoBehaviour {
 	private float[] unitDistances = new float[30];//remember to change this to number of squares
 	float distance;
     public GameObject mouse;
-    private float newLerb;
+    private static float newLerb;
 	public static float mirrorLerb;
 	public List<GameObject> distanceUnits= new List<GameObject>();
     
@@ -50,7 +50,7 @@ public class GradiantLamp : MonoBehaviour {
 	}
 
     public static float getDistance() {
-        return closestDistance;
+        return newLerb;
     }
 
     void Start() {
@@ -97,7 +97,6 @@ public class GradiantLamp : MonoBehaviour {
 				for (int i = 0; i < unitDistances.Length; i++) {
 					if (unitDistances [i] < closestDistance) {
 						closestDistance = unitDistances [i];
-						//Debug.Log (closestDistance);
 					}
 				}
 				mirrorLerb = (closestDistance-7.32f)/distanceToFarthestPoint;
