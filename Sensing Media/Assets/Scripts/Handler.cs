@@ -23,7 +23,7 @@ public class Handler : MonoBehaviour {
     }
 
     public static void prepare() {
-
+        new Logging();
         if (state == 0) {
             Audio.audiostate = 5; // play sound
             PathTracer.toggle(true);
@@ -62,7 +62,7 @@ public class Handler : MonoBehaviour {
             dataList[stage].millis = timestampEnd - timestampBeg;
             dataList[stage].accuracy = (countStart - countEnd) * 100.0f / countStart ;
             dataList[stage].count = countEnd;
-            Logging.upload(
+            Logging.getCurrent().SaveToMySQL(
                     textID.getTextID(),
                     StartMenu.testState,
                     countStart,
