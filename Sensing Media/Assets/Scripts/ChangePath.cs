@@ -622,42 +622,52 @@ public class ChangePath : MonoBehaviour {
         {
             //  if (infoNr >5)
             //	infoNr = 1;
+            if (PathTracer.currentLevel == 1)
+            {
+                infoTextlvl1.text = "Keep your eyes open for the line, it will disappear!";
+                infoTextlvl1.enabled = true;
+            }
+            else
+                infoTextlvl1.enabled = false;
+
 
             if (infoNr == 1)
             {
                 infoText.text = "<color=black>LENS </color>\nFor your next task, use the magic lens.";
                 lvlName.text = "LENS";
-                infoTextlvl1.text = "Keep your eyes open for the line, it will disappear!";
                 infoImage1.SetActive(true);
-                Debug.Log("1: infoNr = " + infoNr);
+                Debug.Log(PathTracer.currentLevel);
+                
+                // Debug.Log("1: infoNr = " + infoNr);
 
             }
             else if (infoNr == 2)
             {
-                infoTextlvl1.enabled = false;
+                //infoTextlvl1.enabled = false;
                 infoText.text = "<color=black>FINGER OFFSET</color> \nFor your next task, the light feedback will have an offset from you finger.";
-                lvlName.text = "FINGER OFFSET";
+                lvlName.text = "FINGER OFFSET";                
                 infoImage2.SetActive(true);
                 Debug.Log("2: infoNr = " + infoNr);
+                
 
             }
             else if (infoNr == 3)
             {
-                infoTextlvl1.enabled = false;
+                //infoTextlvl1.enabled = false;
                 infoText.text = "<color=black>FINGER CORNER</color> \nFor your next task, use your finger with the light feedback in the corner.";
                 lvlName.text = "FINGER CORNER";
                 infoImage3.SetActive(true);
             }
             else if (infoNr == 4)
             {
-                infoTextlvl1.enabled = false;
+                //infoTextlvl1.enabled = false;
                 infoText.text = "<color=black>GEM OFFSET</color> \nFor your next task, the light feedback will have an offset from the magic gem.";
                 lvlName.text = "GEM OFFSET";
                 infoImage4.SetActive(true);
             }
             else if (infoNr == 5)
             {
-                infoTextlvl1.enabled = false;
+                //infoTextlvl1.enabled = false;
                 infoText.text = "<color=black>GEM CORNER</color> \nFor your next task, use the magic gem with the light feedback in the corner.";
                 lvlName.text = "GEM CORNER";
                 infoImage5.SetActive(true);

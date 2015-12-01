@@ -111,7 +111,7 @@ public class PathTracer : MonoBehaviour {
                     float elapsedTime = Handler.getElapsedTime();
                     if (Handler.getElapsedTime() > 0)
                         Logging.log(Handler.getElapsedTime() + "\t" + (nearestP <= width/2.0 ? nearestP + "\t" + 0 : GradiantLamp.getDistance() + "\t" + 1) + "\t" + x + "\t" + y);
-                    Debug.Log(GradiantLamp.getDistance());
+                    //Debug.Log(GradiantLamp.getDistance());
 
                     nearestP /= width/2;
 
